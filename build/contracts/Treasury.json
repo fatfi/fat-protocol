@@ -27805,6 +27805,216 @@
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {
+        "0x03ca7276ab7799bf73fb79d27ff0610cd7049574f2508ef8445162833d439aea": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "seigniorage",
+              "type": "uint256"
+            }
+          ],
+          "name": "BoardroomFunded",
+          "type": "event"
+        },
+        "0xdbf5270c3cf4729fec4fdac76fda864aa4f3d14d657ad21772ac28f627141ed9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "BoughtBonds",
+          "type": "event"
+        },
+        "0x970b0c70d6e9879d19345f9dbfd8bacae71546478b8bb2d8a56ad8927d3d436e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "newFund",
+              "type": "address"
+            }
+          ],
+          "name": "ContributionPoolChanged",
+          "type": "event"
+        },
+        "0x4caa64211297e9263667fef70732dc65ca7a8e8c60dc72539ed94518628212d0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "seigniorage",
+              "type": "uint256"
+            }
+          ],
+          "name": "ContributionPoolFunded",
+          "type": "event"
+        },
+        "0x25ba333c9a98f8f18bb40ff507a4a1fb423614f442759c754d038a9de3f81cf3": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "newRate",
+              "type": "uint256"
+            }
+          ],
+          "name": "ContributionPoolRateChanged",
+          "type": "event"
+        },
+        "0x25ff68dd81b34665b5ba7e553ee5511bf6812e12adb4a7e2c0d9e26b3099ce79": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "executor",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "at",
+              "type": "uint256"
+            }
+          ],
+          "name": "Initialized",
+          "type": "event"
+        },
+        "0x0caca70b66aed56b0630989a049110023c5a3f37e0ea4b6ce96fc747663f3ebc": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "target",
+              "type": "address"
+            }
+          ],
+          "name": "Migration",
+          "type": "event"
+        },
+        "0x74da04524d50c64947f5dd5381ef1a4dca5cba8ed1d816243f9e48aa0b5617ed": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOperator",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOperator",
+              "type": "address"
+            }
+          ],
+          "name": "OperatorTransferred",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9c3478f12dce08d85673d802af16ed5b9ebab8420ffd7b145d65d3157084b2ce": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            }
+          ],
+          "name": "RedeemedBonds",
+          "type": "event"
+        },
+        "0xf705142bf09f04297640495ddf7c59b7fd6f51894c5aea9602d631cf05f0efc2": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "seigniorage",
+              "type": "uint256"
+            }
+          ],
+          "name": "TreasuryFunded",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x37c97658e4047329EB70c0535dFfcACAa1dBAe41",
+      "transactionHash": "0xb09da4b9f12e5abbacafec8fb3d9e5b5ad80f6cbd419e7f4241a93baa33cb511"
+    },
     "5777": {
       "events": {
         "0x03ca7276ab7799bf73fb79d27ff0610cd7049574f2508ef8445162833d439aea": {
@@ -28017,7 +28227,7 @@
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-19T03:52:30.575Z",
+  "updatedAt": "2021-01-19T07:38:58.519Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Summer Smith & Rick Sanchez",

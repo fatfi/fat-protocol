@@ -7968,6 +7968,70 @@
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {
+    "3": {
+      "events": {
+        "0x74da04524d50c64947f5dd5381ef1a4dca5cba8ed1d816243f9e48aa0b5617ed": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOperator",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOperator",
+              "type": "address"
+            }
+          ],
+          "name": "OperatorTransferred",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0xd78a0cb8bb633d06981248b816e7bd33c2a35a6089241d099fa519e361cab902": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price0CumulativeLast",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "price1CumulativeLast",
+              "type": "uint256"
+            }
+          ],
+          "name": "Updated",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xc44531C4F9BdEdC418A1b86AF069430a9DBcDd50",
+      "transactionHash": "0x2138b6d533d4dd809fa121f77834e441f2f4da4ad221de4d56c40beba7727e0e"
+    },
     "5777": {
       "events": {
         "0x74da04524d50c64947f5dd5381ef1a4dca5cba8ed1d816243f9e48aa0b5617ed": {
@@ -8034,7 +8098,7 @@
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-19T03:52:30.532Z",
+  "updatedAt": "2021-01-19T07:38:58.449Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
