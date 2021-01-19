@@ -1,0 +1,128 @@
+{
+  "DAI": {
+    "poolName": "FACDAIPool",
+    "poolAddress": "0xCa80F2F3D571D777a1E648aBd434a7e9B947059e",
+    "tokenName": "DAI",
+    "tokenAddress": "0x0cbE82A0CB4fF1512941639CbA61B2730A63E8d2",
+    "decimals": 18
+  },
+  "BUSD": {
+    "poolName": "FACBUSDPool",
+    "poolAddress": "0x2D7a8C2f82C7BE8f324345d8073B15f0A15eC816",
+    "tokenName": "BUSD",
+    "tokenAddress": "0xd95cd53e386A9AE9B5E371f8f0CD227027f983Eb",
+    "decimals": 18
+  },
+  "USDT": {
+    "poolName": "FACUSDTPool",
+    "poolAddress": "0x7a7E32Fb522f001e6cd544560358157ebDbb8420",
+    "tokenName": "USDT",
+    "tokenAddress": "0x3a3060934da3C0A9D002e334C03B088775BcEe25",
+    "decimals": 6
+  },
+  "USDC": {
+    "poolName": "FACUSDCPool",
+    "poolAddress": "0x4cC03841abEeB1451116352aAEaC0F4E248BA0fE",
+    "tokenName": "USDC",
+    "tokenAddress": "0xE2D1294A01E4d3347b943Bdf338C0EeF209D1029",
+    "decimals": 6
+  },
+  "SUSD": {
+    "poolName": "FACSUSDPool",
+    "poolAddress": "0xBBd94745Ad5bfb40b5e5d6e0D69310E8d0ceB038",
+    "tokenName": "SUSD",
+    "tokenAddress": "0x55c9D66A15384268a68fC34b56109e100Af36EC1",
+    "decimals": 18
+  },
+  "ESD": {
+    "poolName": "FACESDPool",
+    "poolAddress": "0xBBd94745Ad5bfb40b5e5d6e0D69310E8d0ceB038",
+    "tokenName": "ESD",
+    "tokenAddress": "0x5553b162F737577Dc829869fa1DA9072774Ec57a",
+    "decimals": 18
+  },
+  "BAC": {
+    "poolName": "FACBACPool",
+    "poolAddress": "0x54655Ea65D35E58aFC669009E1114E1c0BA8bfa4",
+    "tokenName": "BAC",
+    "tokenAddress": "0x324aDC00d27b9900731f3fD98537C3CDCd48b203",
+    "decimals": 18
+  },
+  "MIC": {
+    "poolName": "FACMICPool",
+    "poolAddress": "0x017ABc311e944891f5fbc1Fd7579Cd77a56E5cd5",
+    "tokenName": "MIC",
+    "tokenAddress": "0x93e4a8d3E2cCBb08a87Ff57229081deF80a6A555",
+    "decimals": 18
+  },
+  "UNI": {
+    "poolName": "FACUNIPool",
+    "poolAddress": "0xbf50bdfA8B15A391318ffca21E50792a58c4f959",
+    "tokenName": "UNI",
+    "tokenAddress": "0x7d4cDf0cEfe44Fd7A9C10CddC34386C5d9aaCA1d",
+    "decimals": 18
+  },
+  "YFI": {
+    "poolName": "FACYFIPool",
+    "poolAddress": "0xB956500b10298f5003de93456DFCb6f6b13aE081",
+    "tokenName": "YFI",
+    "tokenAddress": "0x90b9eeAce41F863866a5907CF221497141387016",
+    "decimals": 18
+  },
+  "SUSHI": {
+    "poolName": "FACSUSHIPool",
+    "poolAddress": "0x4eC9710C66a78cfA1f141C54540aeA2381f6d95b",
+    "tokenName": "SUSHI",
+    "tokenAddress": "0x1117f8379e76298f23C3702A37CCA09D8f561728",
+    "decimals": 18
+  },
+  "CREAM": {
+    "poolName": "FACCREAMPool",
+    "poolAddress": "0x6dE255F6Dd0191B8f44Dc9Ab89a69f6214284C3C",
+    "tokenName": "CREAM",
+    "tokenAddress": "0x1AD87BfDc5e8Fe3496AFB56FDAA537998dfb4B66",
+    "decimals": 18
+  },
+  "COMP": {
+    "poolName": "FACCOMPPool",
+    "poolAddress": "0xa67BdbfEcF37F11e335D2D463213c507d085984c",
+    "tokenName": "COMP",
+    "tokenAddress": "0x1fCf3E31d6D37958f808E5b2C1EDc61B9F44d95E",
+    "decimals": 18
+  },
+  "AAVE": {
+    "poolName": "FACAAVEPool",
+    "poolAddress": "0xfa36d1905217721F02A133980f3BE1D842098e40",
+    "tokenName": "AAVE",
+    "tokenAddress": "0x108F96B05f237ABe510755f69741Ef5D3FE78033",
+    "decimals": 18
+  },
+  "CRV": {
+    "poolName": "FACCRVPool",
+    "poolAddress": "0xd7703042Cd2DD5261bF6F2E2839Df982ABFd98da",
+    "tokenName": "CRV",
+    "tokenAddress": "0x938d08a92d305907491b43673Af0338FD111dc71",
+    "decimals": 18
+  },
+  "LINK": {
+    "poolName": "FACLINKPool",
+    "poolAddress": "0x9E0180a6D128f30b05dE3eeed0B160DA586B8D32",
+    "tokenName": "LINK",
+    "tokenAddress": "0x4282Cdf7D731A5dBF78cF193D7F97e8EA286234C",
+    "decimals": 18
+  },
+  "INCH": {
+    "poolName": "FACINCHPool",
+    "poolAddress": "0xD2Ad1886bC9ef4932F0D4a4Db6BB9AAaD367C0bF",
+    "tokenName": "INCH",
+    "tokenAddress": "0x1930b1522708BA28Ff5477450AC68D336D00dD74",
+    "decimals": 18
+  },
+  "WETH": {
+    "poolName": "FACWETHPool",
+    "poolAddress": "0xeB4c2246d21DE8d08919EEA1B9C90003f93299Dd",
+    "tokenName": "WETH",
+    "tokenAddress": "0xAD6dC254B8bbEfd580998b7F8145ef6485E431F3",
+    "decimals": 18
+  }
+}
