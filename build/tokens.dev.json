@@ -1,0 +1,128 @@
+{
+  "DAI": {
+    "poolName": "FACDAIPool",
+    "poolAddress": "0x55e154b0aED426a557Be426751004e5556DB2983",
+    "tokenName": "DAI",
+    "tokenAddress": "0x8101Ad90f67d82f77Bad4e80F26a2f3411bD844E",
+    "decimals": 18
+  },
+  "BUSD": {
+    "poolName": "FACBUSDPool",
+    "poolAddress": "0x60Aa34e1Fa0028AA913d1B388ac07856565a29F7",
+    "tokenName": "BUSD",
+    "tokenAddress": "0x0dB82966e9D89136397170eB292A2da47e45111d",
+    "decimals": 18
+  },
+  "USDT": {
+    "poolName": "FACUSDTPool",
+    "poolAddress": "0x71212C0c8A1244eE73a06551a3CCb695592Bb94F",
+    "tokenName": "USDT",
+    "tokenAddress": "0x2328f5Ea7808367E4d26fcF89492c7D607DF0093",
+    "decimals": 6
+  },
+  "USDC": {
+    "poolName": "FACUSDCPool",
+    "poolAddress": "0x0287556C9Ee7468D59F7A64892e3c973E30Cb122",
+    "tokenName": "USDC",
+    "tokenAddress": "0x2A39b4Fd8c800F62A9356DE5fE6083676B09649D",
+    "decimals": 6
+  },
+  "SUSD": {
+    "poolName": "FACSUSDPool",
+    "poolAddress": "0x40d5767B38BB6EE8eebcECeD241b77C960eEe6F9",
+    "tokenName": "SUSD",
+    "tokenAddress": "0x9054aa19894c6527ec1B5A835F080a123553B0F4",
+    "decimals": 18
+  },
+  "ESD": {
+    "poolName": "FACESDPool",
+    "poolAddress": "0x1D20cFe9c8E08f49AebBCE4A595A0C5B4b26AF76",
+    "tokenName": "ESD",
+    "tokenAddress": "0xafC89DEc5433a2Aad900268B472a2DeA949bD834",
+    "decimals": 18
+  },
+  "BAC": {
+    "poolName": "FACBACPool",
+    "poolAddress": "0x755893a5D48B07357C7e99B492E0a4c4f264ebeF",
+    "tokenName": "BAC",
+    "tokenAddress": "0x9a9B67B61D2422bE9d936eAbDB2edAd990e153ac",
+    "decimals": 18
+  },
+  "MIC": {
+    "poolName": "FACMICPool",
+    "poolAddress": "0x7732a777Fde43D7451465BfE53850A01190AF41F",
+    "tokenName": "MIC",
+    "tokenAddress": "0xB93efa9ad846a1f20698068A8e57f06f1a637e5B",
+    "decimals": 18
+  },
+  "UNI": {
+    "poolName": "FACUNIPool",
+    "poolAddress": "0x84BEbA36524d9D4dA325F506105A057094dc0e96",
+    "tokenName": "UNI",
+    "tokenAddress": "0x1D3f8451330a03CD67ecbA4BeF670FafDa8732dC",
+    "decimals": 18
+  },
+  "YFI": {
+    "poolName": "FACYFIPool",
+    "poolAddress": "0x96e4f2CA959fdBF3EC3345b1680E5866275A577F",
+    "tokenName": "YFI",
+    "tokenAddress": "0x170f52B5B5751229624B0100fa95894Fd8931282",
+    "decimals": 18
+  },
+  "SUSHI": {
+    "poolName": "FACSUSHIPool",
+    "poolAddress": "0xB7cBB69BF9d4214ea0b0449880bbf35970a1551e",
+    "tokenName": "SUSHI",
+    "tokenAddress": "0xaE00dF0253621E0B7a06018C3E0526650C22b9a9",
+    "decimals": 18
+  },
+  "CREAM": {
+    "poolName": "FACCREAMPool",
+    "poolAddress": "0x06d98E70B3DD1d1e5E9237a21495783aaCBA4902",
+    "tokenName": "CREAM",
+    "tokenAddress": "0x1eAe9B64D89F4bA704da1F0bE62Ac7B3c21299BA",
+    "decimals": 18
+  },
+  "COMP": {
+    "poolName": "FACCOMPPool",
+    "poolAddress": "0x9cf527dc741e1F577b4B1aC72916D8c195917853",
+    "tokenName": "COMP",
+    "tokenAddress": "0x4C74F2c99d692325b43E28DD073a4d713e8357d9",
+    "decimals": 18
+  },
+  "AAVE": {
+    "poolName": "FACAAVEPool",
+    "poolAddress": "0xF8DDC25F608BC2C0BD312DbA69EBA9a2FAe07d6C",
+    "tokenName": "AAVE",
+    "tokenAddress": "0x221D1434eCa29190b49932CC8992Ca0fBf468506",
+    "decimals": 18
+  },
+  "CRV": {
+    "poolName": "FACCRVPool",
+    "poolAddress": "0x859c9b5FDbf30e12356Fe01EC501CcDACa4750F5",
+    "tokenName": "CRV",
+    "tokenAddress": "0xa85Cd6A4d9Fcc9354fdC43065e8f434dc15e23c4",
+    "decimals": 18
+  },
+  "LINK": {
+    "poolName": "FACLINKPool",
+    "poolAddress": "0xcf2e3EE2257e9b12B29C7da53434731eE415C672",
+    "tokenName": "LINK",
+    "tokenAddress": "0x4ae2d1BEC672a1C1e2FaF0e1d3226A8685AACcfD",
+    "decimals": 18
+  },
+  "INCH": {
+    "poolName": "FACINCHPool",
+    "poolAddress": "0x06CA546B7Fd85f4735C308bfF61e98223A844Ed2",
+    "tokenName": "INCH",
+    "tokenAddress": "0xF048E2C21C5dC8D4F73E3F2FE246b33b015711dD",
+    "decimals": 18
+  },
+  "WETH": {
+    "poolName": "FACWETHPool",
+    "poolAddress": "0x82d1b4d59A6594049966A6EED1968e828A9A2E2f",
+    "tokenName": "WETH",
+    "tokenAddress": "0xde25f5B05A24C30934f859E1d6dEde7E5f8A36F0",
+    "decimals": 18
+  }
+}

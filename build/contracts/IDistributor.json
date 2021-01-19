@@ -1,0 +1,208 @@
+{
+  "contractName": "IDistributor",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "distribute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"distribute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol\":\"IDistributor\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol\":{\"keccak256\":\"0xea1e150732abf6a78e89314ebc297fdab51065aa9ad329fee4afbcf1dcc9a9ff\",\"urls\":[\"bzz-raw://702e8b7b0ad578176c3e4ab69892a6ac796eeccb7d881e696e7dfaf65fe7a441\",\"dweb:/ipfs/QmX8PW8MeDmMa6TQnSwVvoZJ9UHyaDDiEize3LW8tGFeBb\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\n\ninterface IDistributor {\n    function distribute() external;\n}\n",
+  "sourcePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+  "ast": {
+    "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+    "exportedSymbols": {
+      "IDistributor": [
+        15603
+      ]
+    },
+    "id": 15604,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15599,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:37"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15603,
+        "linearizedBaseContracts": [
+          15603
+        ],
+        "name": "IDistributor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "e4fc6b6d",
+            "id": 15602,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "distribute",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15600,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "73:2:37"
+            },
+            "returnParameters": {
+              "id": 15601,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "84:0:37"
+            },
+            "scope": 15603,
+            "src": "54:31:37",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15604,
+        "src": "25:62:37"
+      }
+    ],
+    "src": "0:88:37"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+      "exportedSymbols": {
+        "IDistributor": [
+          15603
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 15599,
+        "name": "PragmaDirective",
+        "src": "0:23:37"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            15603
+          ],
+          "name": "IDistributor",
+          "scope": 15604
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "e4fc6b6d",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "distribute",
+              "overrides": null,
+              "scope": 15603,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15600,
+                "name": "ParameterList",
+                "src": "73:2:37"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15601,
+                "name": "ParameterList",
+                "src": "84:0:37"
+              }
+            ],
+            "id": 15602,
+            "name": "FunctionDefinition",
+            "src": "54:31:37"
+          }
+        ],
+        "id": 15603,
+        "name": "ContractDefinition",
+        "src": "25:62:37"
+      }
+    ],
+    "id": 15604,
+    "name": "SourceUnit",
+    "src": "0:88:37"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-01-18T13:13:18.475Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

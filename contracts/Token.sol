@@ -39,6 +39,9 @@ contract Token is ERC20Burnable, Ownable, Operator {
         uint256 crowdsaleSupply = cap().mul(25).div(1000);
         _mint(crowdsale_,crowdsaleSupply);
 
+        // Mints 1 Fat Token to contract creator for initial Uniswap oracle deployment.
+        // Will be burned after oracle deployment
+        _mint(msg.sender, 1 * 10**18);
     }
 
 

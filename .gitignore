@@ -2,13 +2,11 @@
 .env
 node_modules/
 
-build/
 .DS_Store
 coverage/
 coverage.json
 truffle-config.js
 
-migrations/
 test/
 *.log
 deployments

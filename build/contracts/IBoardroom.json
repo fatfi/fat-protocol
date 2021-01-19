@@ -1,0 +1,267 @@
+{
+  "contractName": "IBoardroom",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocateSeigniorage",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"allocateSeigniorage\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IBoardroom.sol\":\"IBoardroom\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IBoardroom.sol\":{\"keccak256\":\"0x2b1e37477e5e272052f573cbdfdf97a9ac1a1494dd97f2266fe16e5337e6a29b\",\"urls\":[\"bzz-raw://c2a628d64a4bfa2fee56bff4bbe515df2c7ce30dfc4adca97672724b8cc8af18\",\"dweb:/ipfs/QmdvdgU1umsP1MvtPfjH8kTDP9vzXkw96SZqtuvA65Ku7m\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\n\ninterface IBoardroom {\n    function allocateSeigniorage(uint256 amount) external;\n}\n",
+  "sourcePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IBoardroom.sol",
+  "ast": {
+    "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IBoardroom.sol",
+    "exportedSymbols": {
+      "IBoardroom": [
+        15597
+      ]
+    },
+    "id": 15598,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15591,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:36"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15597,
+        "linearizedBaseContracts": [
+          15597
+        ],
+        "name": "IBoardroom",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "97ffe1d7",
+            "id": 15596,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "allocateSeigniorage",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15594,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15593,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15596,
+                  "src": "81:14:36",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15592,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "81:7:36",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "80:16:36"
+            },
+            "returnParameters": {
+              "id": 15595,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "105:0:36"
+            },
+            "scope": 15597,
+            "src": "52:54:36",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15598,
+        "src": "25:83:36"
+      }
+    ],
+    "src": "0:109:36"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IBoardroom.sol",
+      "exportedSymbols": {
+        "IBoardroom": [
+          15597
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 15591,
+        "name": "PragmaDirective",
+        "src": "0:23:36"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            15597
+          ],
+          "name": "IBoardroom",
+          "scope": 15598
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "documentation": null,
+              "functionSelector": "97ffe1d7",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "allocateSeigniorage",
+              "overrides": null,
+              "scope": 15597,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 15596,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 15592,
+                        "name": "ElementaryTypeName",
+                        "src": "81:7:36"
+                      }
+                    ],
+                    "id": 15593,
+                    "name": "VariableDeclaration",
+                    "src": "81:14:36"
+                  }
+                ],
+                "id": 15594,
+                "name": "ParameterList",
+                "src": "80:16:36"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15595,
+                "name": "ParameterList",
+                "src": "105:0:36"
+              }
+            ],
+            "id": 15596,
+            "name": "FunctionDefinition",
+            "src": "52:54:36"
+          }
+        ],
+        "id": 15597,
+        "name": "ContractDefinition",
+        "src": "25:83:36"
+      }
+    ],
+    "id": 15598,
+    "name": "SourceUnit",
+    "src": "0:109:36"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-01-18T13:13:18.475Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

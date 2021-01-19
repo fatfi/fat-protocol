@@ -169,7 +169,6 @@ contract Treasury is ContractGuard, Epoch {
     function migrate(address target) public onlyOperator checkOperator {
         require(!migrated, 'Treasury: migrated');
 
-
         // cash
         // Replace the Operator of the FAC contract, the Owner is the target, and send the FAC of the original contract to the target
         Operator(cash).transferOperator(target);

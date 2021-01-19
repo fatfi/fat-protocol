@@ -1,0 +1,3633 @@
+{
+  "contractName": "InitialShareDistributor",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "_share",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IRewardDistributionRecipient",
+          "name": "_usdtfacLPPool",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_usdtfacInitialBalance",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IRewardDistributionRecipient",
+          "name": "_usdtfasLPPool",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_usdtfasInitialBalance",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "pool",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "cashAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Distributed",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "once",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "share",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "usdtfacInitialBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "usdtfacLPPool",
+      "outputs": [
+        {
+          "internalType": "contract IRewardDistributionRecipient",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "usdtfasInitialBalance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "usdtfasLPPool",
+      "outputs": [
+        {
+          "internalType": "contract IRewardDistributionRecipient",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "distribute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"_share\",\"type\":\"address\"},{\"internalType\":\"contract IRewardDistributionRecipient\",\"name\":\"_usdtfacLPPool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_usdtfacInitialBalance\",\"type\":\"uint256\"},{\"internalType\":\"contract IRewardDistributionRecipient\",\"name\":\"_usdtfasLPPool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_usdtfasInitialBalance\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"pool\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"cashAmount\",\"type\":\"uint256\"}],\"name\":\"Distributed\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"distribute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"once\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"share\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usdtfacInitialBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usdtfacLPPool\",\"outputs\":[{\"internalType\":\"contract IRewardDistributionRecipient\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usdtfasInitialBalance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usdtfasLPPool\",\"outputs\":[{\"internalType\":\"contract IRewardDistributionRecipient\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/distributor/InitialShareDistributor.sol\":\"InitialShareDistributor\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/distributor/InitialShareDistributor.sol\":{\"keccak256\":\"0xa5836de5953abff53b9d6b5e59352d502cde685d704461e142282053804c3d0a\",\"urls\":[\"bzz-raw://690d42060f05cc7f4a8ddd63d60ffc1a3887b55ea411e472f12f4b4629e7cfaa\",\"dweb:/ipfs/QmYcoimMXb5XhXpvvGm9XkVDg3t45fx7gmwSUmCs3ertrZ\"]},\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol\":{\"keccak256\":\"0xea1e150732abf6a78e89314ebc297fdab51065aa9ad329fee4afbcf1dcc9a9ff\",\"urls\":[\"bzz-raw://702e8b7b0ad578176c3e4ab69892a6ac796eeccb7d881e696e7dfaf65fe7a441\",\"dweb:/ipfs/QmX8PW8MeDmMa6TQnSwVvoZJ9UHyaDDiEize3LW8tGFeBb\"]},\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IRewardDistributionRecipient.sol\":{\"keccak256\":\"0xf13f3b22b33b54a281bca7326b066c9e6592cd9f44160daa2f3ddb13128a323f\",\"urls\":[\"bzz-raw://b4f5e63447c75553c8faeff58275a1748038c1479042938220546df1b0ad1e00\",\"dweb:/ipfs/QmZKfhZ6L5SH8fi5zCY4U99TKZ3ifnEmmavRbSa7dZPvkG\"]},\"@openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0xdb26cbf4d028490f49831a7865c2fe1b28db44b535ca8d343785a3b768aae183\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://840b14ce0315c47d49ba328f1f9fa7654ded1c9e1559e6c5e777a7b2dc28bf0a\",\"dweb:/ipfs/QmTLLabn4wcfGro9LEmUXUN2nwKqZSotXMvjDCLXEnLtZP\"]},\"@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x4bd6402ca6b3419008c2b482aff54e66836e8cb4eba2680e42ac5884ae6424fc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8f9f711fb8d0d92aeea1c327e3845d13ca1fa8f142e47f8723cd5b3106fb29a3\",\"dweb:/ipfs/QmVQUReDW9f4zGqhizwHnyU8EntMs95tbASdqkGncnikba\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5\",\"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5c26b39d26f7ed489e555d955dcd3e01872972e71fdd1528e93ec164e4f23385\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://efdc632af6960cf865dbc113665ea1f5b90eab75cc40ec062b2f6ae6da582017\",\"dweb:/ipfs/QmfAZFDuG62vxmAN9DnXApv7e7PMzPqi4RkqqZHLMSQiY5\"]}},\"version\":1}",
+  "bytecode": "0x608060405260016000806101000a81548160ff02191690831515021790555034801561002a57600080fd5b50604051610864380380610864833981810160405260a081101561004d57600080fd5b81019080805190602001909291908051906020019092919080519060200190929190805190602001909291908051906020019092919050505084600060016101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555083600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508260028190555081600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060048190555050505050506106f98061016b6000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c80636e9d0b4e1161005b5780636e9d0b4e146100f45780639530552a14610112578063a8d5fd6514610146578063e4fc6b6d1461017a5761007d565b806311b6194514610082578063292a3f7e146100a057806347ebc5a0146100c0575b600080fd5b61008a610184565b6040518082815260200191505060405180910390f35b6100a861018a565b60405180821515815260200191505060405180910390f35b6100c861019b565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100fc6101c1565b6040518082815260200191505060405180910390f35b61011a6101c7565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61014e6101ed565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610182610213565b005b60045481565b60008054906101000a900460ff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60025481565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008054906101000a900460ff16610276576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603b815260200180610689603b913960400191505060405180910390fd5b600060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166002546040518363ffffffff1660e01b8152600401808373ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561032d57600080fd5b505af1158015610341573d6000803e3d6000fd5b505050506040513d602081101561035757600080fd5b810190808051906020019092919050505050600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633c6b16ab6002546040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b1580156103e057600080fd5b505af11580156103f4573d6000803e3d6000fd5b505050507fb649c98f58055c520df0dcb5709eff2e931217ff2fb1e21376130d31bbb1c0af600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600254604051808373ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a1600060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166004546040518363ffffffff1660e01b8152600401808373ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561052857600080fd5b505af115801561053c573d6000803e3d6000fd5b505050506040513d602081101561055257600080fd5b810190808051906020019092919050505050600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633c6b16ab6004546040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b1580156105db57600080fd5b505af11580156105ef573d6000803e3d6000fd5b505050507fb649c98f58055c520df0dcb5709eff2e931217ff2fb1e21376130d31bbb1c0af600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600454604051808373ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a160008060006101000a81548160ff02191690831515021790555056fe496e697469616c53686172654469737472696275746f723a20796f752063616e6e6f742072756e20746869732066756e6374696f6e207477696365a2646970667358221220689f6a64fdc8d86d5caf15656af400e5b4f73013114916b9920da412ff108cca64736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c80636e9d0b4e1161005b5780636e9d0b4e146100f45780639530552a14610112578063a8d5fd6514610146578063e4fc6b6d1461017a5761007d565b806311b6194514610082578063292a3f7e146100a057806347ebc5a0146100c0575b600080fd5b61008a610184565b6040518082815260200191505060405180910390f35b6100a861018a565b60405180821515815260200191505060405180910390f35b6100c861019b565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100fc6101c1565b6040518082815260200191505060405180910390f35b61011a6101c7565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61014e6101ed565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610182610213565b005b60045481565b60008054906101000a900460ff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60025481565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008054906101000a900460ff16610276576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603b815260200180610689603b913960400191505060405180910390fd5b600060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166002546040518363ffffffff1660e01b8152600401808373ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561032d57600080fd5b505af1158015610341573d6000803e3d6000fd5b505050506040513d602081101561035757600080fd5b810190808051906020019092919050505050600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633c6b16ab6002546040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b1580156103e057600080fd5b505af11580156103f4573d6000803e3d6000fd5b505050507fb649c98f58055c520df0dcb5709eff2e931217ff2fb1e21376130d31bbb1c0af600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600254604051808373ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a1600060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a9059cbb600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff166004546040518363ffffffff1660e01b8152600401808373ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15801561052857600080fd5b505af115801561053c573d6000803e3d6000fd5b505050506040513d602081101561055257600080fd5b810190808051906020019092919050505050600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16633c6b16ab6004546040518263ffffffff1660e01b815260040180828152602001915050600060405180830381600087803b1580156105db57600080fd5b505af11580156105ef573d6000803e3d6000fd5b505050507fb649c98f58055c520df0dcb5709eff2e931217ff2fb1e21376130d31bbb1c0af600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16600454604051808373ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a160008060006101000a81548160ff02191690831515021790555056fe496e697469616c53686172654469737472696275746f723a20796f752063616e6e6f742072756e20746869732066756e6374696f6e207477696365a2646970667358221220689f6a64fdc8d86d5caf15656af400e5b4f73013114916b9920da412ff108cca64736f6c634300060c0033",
+  "immutableReferences": {},
+  "sourceMap": "234:1469:34:-:0;;;399:4;380:23;;;;;;;;;;;;;;;;;;;;630:457;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;882:6;874:5;;:14;;;;;;;;;;;;;;;;;;914;898:13;;:30;;;;;;;;;;;;;;;;;;962:22;938:21;:46;;;;1010:14;994:13;;:30;;;;;;;;;;;;;;;;;;1058:22;1034:21;:46;;;;630:457;;;;;234:1469;;;;;;",
+  "deployedSourceMap": "234:1469:34:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;587:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;380:23;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;532:49;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;490:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;435:49;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;410:19;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;1093:608;;;:::i;:::-;;587:36;;;;:::o;380:23::-;;;;;;;;;;;;:::o;532:49::-;;;;;;;;;;;;;:::o;490:36::-;;;;:::o;435:49::-;;;;;;;;;;;;;:::o;410:19::-;;;;;;;;;;;;;:::o;1093:608::-;1162:4;;;;;;;;;;1141:110;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1262:5;;;;;;;;;;;:14;;;1285:13;;;;;;;;;;;1301:21;;1262:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1333:13;;;;;;;;;;;:32;;;1366:21;;1333:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1403:58;1423:13;;;;;;;;;;;1439:21;;1403:58;;;;;;;;;;;;;;;;;;;;;;;;;;1472:5;;;;;;;;;;;:14;;;1495:13;;;;;;;;;;;1511:21;;1472:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1543:13;;;;;;;;;;;:32;;;1576:21;;1543:55;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1613:58;1633:13;;;;;;;;;;;1649:21;;1613:58;;;;;;;;;;;;;;;;;;;;;;;;;;1689:5;1682:4;;:12;;;;;;;;;;;;;;;;;;1093:608::o",
+  "source": "pragma solidity ^0.6.0;\n\nimport '@openzeppelin/contracts/math/SafeMath.sol';\nimport '@openzeppelin/contracts/token/ERC20/IERC20.sol';\n\nimport '../interfaces/IDistributor.sol';\nimport '../interfaces/IRewardDistributionRecipient.sol';\n\ncontract InitialShareDistributor is IDistributor {\n    using SafeMath for uint256;\n\n    event Distributed(address pool, uint256 cashAmount);\n\n    bool public once = true;\n\n    IERC20 public share;\n    IRewardDistributionRecipient public usdtfacLPPool;\n    uint256 public usdtfacInitialBalance;\n    IRewardDistributionRecipient public usdtfasLPPool;\n    uint256 public usdtfasInitialBalance;\n\n    constructor(\n        IERC20 _share,\n        IRewardDistributionRecipient _usdtfacLPPool,\n        uint256 _usdtfacInitialBalance,\n        IRewardDistributionRecipient _usdtfasLPPool,\n        uint256 _usdtfasInitialBalance\n    ) public {\n        share = _share;\n        usdtfacLPPool = _usdtfacLPPool;\n        usdtfacInitialBalance = _usdtfacInitialBalance;\n        usdtfasLPPool = _usdtfasLPPool;\n        usdtfasInitialBalance = _usdtfasInitialBalance;\n    }\n\n    function distribute() public override {\n        require(\n            once,\n            'InitialShareDistributor: you cannot run this function twice'\n        );\n\n        share.transfer(address(usdtfacLPPool), usdtfacInitialBalance);\n        usdtfacLPPool.notifyRewardAmount(usdtfacInitialBalance);\n        emit Distributed(address(usdtfacLPPool), usdtfacInitialBalance);\n\n        share.transfer(address(usdtfasLPPool), usdtfasInitialBalance);\n        usdtfasLPPool.notifyRewardAmount(usdtfasInitialBalance);\n        emit Distributed(address(usdtfasLPPool), usdtfasInitialBalance);\n\n        once = false;\n    }\n}\n",
+  "sourcePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/distributor/InitialShareDistributor.sol",
+  "ast": {
+    "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/distributor/InitialShareDistributor.sol",
+    "exportedSymbols": {
+      "InitialShareDistributor": [
+        15422
+      ]
+    },
+    "id": 15423,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15297,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:34"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
+        "file": "@openzeppelin/contracts/math/SafeMath.sol",
+        "id": 15298,
+        "nodeType": "ImportDirective",
+        "scope": 15423,
+        "sourceUnit": 18688,
+        "src": "25:51:34",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 15299,
+        "nodeType": "ImportDirective",
+        "scope": 15423,
+        "sourceUnit": 19329,
+        "src": "77:56:34",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+        "file": "../interfaces/IDistributor.sol",
+        "id": 15300,
+        "nodeType": "ImportDirective",
+        "scope": 15423,
+        "sourceUnit": 15604,
+        "src": "135:40:34",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IRewardDistributionRecipient.sol",
+        "file": "../interfaces/IRewardDistributionRecipient.sol",
+        "id": 15301,
+        "nodeType": "ImportDirective",
+        "scope": 15423,
+        "sourceUnit": 15697,
+        "src": "176:56:34",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 15302,
+              "name": "IDistributor",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15603,
+              "src": "270:12:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IDistributor_$15603",
+                "typeString": "contract IDistributor"
+              }
+            },
+            "id": 15303,
+            "nodeType": "InheritanceSpecifier",
+            "src": "270:12:34"
+          }
+        ],
+        "contractDependencies": [
+          15603
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 15422,
+        "linearizedBaseContracts": [
+          15422,
+          15603
+        ],
+        "name": "InitialShareDistributor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 15306,
+            "libraryName": {
+              "contractScope": null,
+              "id": 15304,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 18687,
+              "src": "295:8:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$18687",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "289:27:34",
+            "typeName": {
+              "id": 15305,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "308:7:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 15312,
+            "name": "Distributed",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 15311,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15308,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "pool",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15312,
+                  "src": "340:12:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15307,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "340:7:34",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15310,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "cashAmount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15312,
+                  "src": "354:18:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15309,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "354:7:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "339:34:34"
+            },
+            "src": "322:52:34"
+          },
+          {
+            "constant": false,
+            "functionSelector": "292a3f7e",
+            "id": 15315,
+            "mutability": "mutable",
+            "name": "once",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 15422,
+            "src": "380:23:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 15313,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "380:4:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "74727565",
+              "id": 15314,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "bool",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "399:4:34",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              },
+              "value": "true"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "a8d5fd65",
+            "id": 15317,
+            "mutability": "mutable",
+            "name": "share",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 15422,
+            "src": "410:19:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$19328",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15316,
+              "name": "IERC20",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 19328,
+              "src": "410:6:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$19328",
+                "typeString": "contract IERC20"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "9530552a",
+            "id": 15319,
+            "mutability": "mutable",
+            "name": "usdtfacLPPool",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 15422,
+            "src": "435:49:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+              "typeString": "contract IRewardDistributionRecipient"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15318,
+              "name": "IRewardDistributionRecipient",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15696,
+              "src": "435:28:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                "typeString": "contract IRewardDistributionRecipient"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "6e9d0b4e",
+            "id": 15321,
+            "mutability": "mutable",
+            "name": "usdtfacInitialBalance",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 15422,
+            "src": "490:36:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 15320,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "490:7:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "47ebc5a0",
+            "id": 15323,
+            "mutability": "mutable",
+            "name": "usdtfasLPPool",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 15422,
+            "src": "532:49:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+              "typeString": "contract IRewardDistributionRecipient"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 15322,
+              "name": "IRewardDistributionRecipient",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 15696,
+              "src": "532:28:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                "typeString": "contract IRewardDistributionRecipient"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "11b61945",
+            "id": 15325,
+            "mutability": "mutable",
+            "name": "usdtfasInitialBalance",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 15422,
+            "src": "587:36:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 15324,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "587:7:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 15358,
+              "nodeType": "Block",
+              "src": "864:223:34",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15340,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15338,
+                      "name": "share",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15317,
+                      "src": "874:5:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$19328",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15339,
+                      "name": "_share",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15327,
+                      "src": "882:6:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$19328",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "874:14:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$19328",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "id": 15341,
+                  "nodeType": "ExpressionStatement",
+                  "src": "874:14:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15344,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15342,
+                      "name": "usdtfacLPPool",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15319,
+                      "src": "898:13:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                        "typeString": "contract IRewardDistributionRecipient"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15343,
+                      "name": "_usdtfacLPPool",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15329,
+                      "src": "914:14:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                        "typeString": "contract IRewardDistributionRecipient"
+                      }
+                    },
+                    "src": "898:30:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                      "typeString": "contract IRewardDistributionRecipient"
+                    }
+                  },
+                  "id": 15345,
+                  "nodeType": "ExpressionStatement",
+                  "src": "898:30:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15348,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15346,
+                      "name": "usdtfacInitialBalance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15321,
+                      "src": "938:21:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15347,
+                      "name": "_usdtfacInitialBalance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15331,
+                      "src": "962:22:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "938:46:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 15349,
+                  "nodeType": "ExpressionStatement",
+                  "src": "938:46:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15352,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15350,
+                      "name": "usdtfasLPPool",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15323,
+                      "src": "994:13:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                        "typeString": "contract IRewardDistributionRecipient"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15351,
+                      "name": "_usdtfasLPPool",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15333,
+                      "src": "1010:14:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                        "typeString": "contract IRewardDistributionRecipient"
+                      }
+                    },
+                    "src": "994:30:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                      "typeString": "contract IRewardDistributionRecipient"
+                    }
+                  },
+                  "id": 15353,
+                  "nodeType": "ExpressionStatement",
+                  "src": "994:30:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15356,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15354,
+                      "name": "usdtfasInitialBalance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15325,
+                      "src": "1034:21:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 15355,
+                      "name": "_usdtfasInitialBalance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15335,
+                      "src": "1058:22:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1034:46:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 15357,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1034:46:34"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 15359,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15336,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 15327,
+                  "mutability": "mutable",
+                  "name": "_share",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15359,
+                  "src": "651:13:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$19328",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15326,
+                    "name": "IERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 19328,
+                    "src": "651:6:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$19328",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15329,
+                  "mutability": "mutable",
+                  "name": "_usdtfacLPPool",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15359,
+                  "src": "674:43:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                    "typeString": "contract IRewardDistributionRecipient"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15328,
+                    "name": "IRewardDistributionRecipient",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15696,
+                    "src": "674:28:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                      "typeString": "contract IRewardDistributionRecipient"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15331,
+                  "mutability": "mutable",
+                  "name": "_usdtfacInitialBalance",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15359,
+                  "src": "727:30:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15330,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "727:7:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15333,
+                  "mutability": "mutable",
+                  "name": "_usdtfasLPPool",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15359,
+                  "src": "767:43:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                    "typeString": "contract IRewardDistributionRecipient"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 15332,
+                    "name": "IRewardDistributionRecipient",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 15696,
+                    "src": "767:28:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                      "typeString": "contract IRewardDistributionRecipient"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 15335,
+                  "mutability": "mutable",
+                  "name": "_usdtfasInitialBalance",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 15359,
+                  "src": "820:30:34",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 15334,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "820:7:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "641:215:34"
+            },
+            "returnParameters": {
+              "id": 15337,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "864:0:34"
+            },
+            "scope": 15422,
+            "src": "630:457:34",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "baseFunctions": [
+              15602
+            ],
+            "body": {
+              "id": 15420,
+              "nodeType": "Block",
+              "src": "1131:570:34",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 15364,
+                        "name": "once",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15315,
+                        "src": "1162:4:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "496e697469616c53686172654469737472696275746f723a20796f752063616e6e6f742072756e20746869732066756e6374696f6e207477696365",
+                        "id": 15365,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1180:61:34",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_b854faa601f71f2a8f0147f998ba716be3eaa1676925fd0af69acf161d590ecc",
+                          "typeString": "literal_string \"InitialShareDistributor: you cannot run this function twice\""
+                        },
+                        "value": "InitialShareDistributor: you cannot run this function twice"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_b854faa601f71f2a8f0147f998ba716be3eaa1676925fd0af69acf161d590ecc",
+                          "typeString": "literal_string \"InitialShareDistributor: you cannot run this function twice\""
+                        }
+                      ],
+                      "id": 15363,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "1141:7:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 15366,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1141:110:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15367,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1141:110:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 15373,
+                            "name": "usdtfacLPPool",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 15319,
+                            "src": "1285:13:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          ],
+                          "id": 15372,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1277:7:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 15371,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1277:7:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": null,
+                              "typeString": null
+                            }
+                          }
+                        },
+                        "id": 15374,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1277:22:34",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 15375,
+                        "name": "usdtfacInitialBalance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15321,
+                        "src": "1301:21:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 15368,
+                        "name": "share",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15317,
+                        "src": "1262:5:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IERC20_$19328",
+                          "typeString": "contract IERC20"
+                        }
+                      },
+                      "id": 15370,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 19277,
+                      "src": "1262:14:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 15376,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1262:61:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 15377,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1262:61:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 15381,
+                        "name": "usdtfacInitialBalance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15321,
+                        "src": "1366:21:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 15378,
+                        "name": "usdtfacLPPool",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15319,
+                        "src": "1333:13:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                          "typeString": "contract IRewardDistributionRecipient"
+                        }
+                      },
+                      "id": 15380,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "notifyRewardAmount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 15671,
+                      "src": "1333:32:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256) external"
+                      }
+                    },
+                    "id": 15382,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1333:55:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15383,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1333:55:34"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 15387,
+                            "name": "usdtfacLPPool",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 15319,
+                            "src": "1423:13:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          ],
+                          "id": 15386,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1415:7:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 15385,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1415:7:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": null,
+                              "typeString": null
+                            }
+                          }
+                        },
+                        "id": 15388,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1415:22:34",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 15389,
+                        "name": "usdtfacInitialBalance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15321,
+                        "src": "1439:21:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 15384,
+                      "name": "Distributed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15312,
+                      "src": "1403:11:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 15390,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1403:58:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15391,
+                  "nodeType": "EmitStatement",
+                  "src": "1398:63:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 15397,
+                            "name": "usdtfasLPPool",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 15323,
+                            "src": "1495:13:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          ],
+                          "id": 15396,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1487:7:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 15395,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1487:7:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": null,
+                              "typeString": null
+                            }
+                          }
+                        },
+                        "id": 15398,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1487:22:34",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 15399,
+                        "name": "usdtfasInitialBalance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15325,
+                        "src": "1511:21:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 15392,
+                        "name": "share",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15317,
+                        "src": "1472:5:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IERC20_$19328",
+                          "typeString": "contract IERC20"
+                        }
+                      },
+                      "id": 15394,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 19277,
+                      "src": "1472:14:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 15400,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1472:61:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 15401,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1472:61:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 15405,
+                        "name": "usdtfasInitialBalance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15325,
+                        "src": "1576:21:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 15402,
+                        "name": "usdtfasLPPool",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15323,
+                        "src": "1543:13:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                          "typeString": "contract IRewardDistributionRecipient"
+                        }
+                      },
+                      "id": 15404,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "notifyRewardAmount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 15671,
+                      "src": "1543:32:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256) external"
+                      }
+                    },
+                    "id": 15406,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1543:55:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15407,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1543:55:34"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 15411,
+                            "name": "usdtfasLPPool",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 15323,
+                            "src": "1633:13:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                              "typeString": "contract IRewardDistributionRecipient"
+                            }
+                          ],
+                          "id": 15410,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1625:7:34",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 15409,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1625:7:34",
+                            "typeDescriptions": {
+                              "typeIdentifier": null,
+                              "typeString": null
+                            }
+                          }
+                        },
+                        "id": 15412,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1625:22:34",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 15413,
+                        "name": "usdtfasInitialBalance",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 15325,
+                        "src": "1649:21:34",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 15408,
+                      "name": "Distributed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15312,
+                      "src": "1613:11:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 15414,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1613:58:34",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 15415,
+                  "nodeType": "EmitStatement",
+                  "src": "1608:63:34"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 15418,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 15416,
+                      "name": "once",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 15315,
+                      "src": "1682:4:34",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "66616c7365",
+                      "id": 15417,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1689:5:34",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "src": "1682:12:34",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 15419,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1682:12:34"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "e4fc6b6d",
+            "id": 15421,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "distribute",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 15361,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1122:8:34"
+            },
+            "parameters": {
+              "id": 15360,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1112:2:34"
+            },
+            "returnParameters": {
+              "id": 15362,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1131:0:34"
+            },
+            "scope": 15422,
+            "src": "1093:608:34",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 15423,
+        "src": "234:1469:34"
+      }
+    ],
+    "src": "0:1704:34"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/distributor/InitialShareDistributor.sol",
+      "exportedSymbols": {
+        "InitialShareDistributor": [
+          15422
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 15297,
+        "name": "PragmaDirective",
+        "src": "0:23:34"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 18688,
+          "absolutePath": "@openzeppelin/contracts/math/SafeMath.sol",
+          "file": "@openzeppelin/contracts/math/SafeMath.sol",
+          "scope": 15423,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 15298,
+        "name": "ImportDirective",
+        "src": "25:51:34"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 19329,
+          "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+          "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+          "scope": 15423,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 15299,
+        "name": "ImportDirective",
+        "src": "77:56:34"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 15604,
+          "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+          "file": "../interfaces/IDistributor.sol",
+          "scope": 15423,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 15300,
+        "name": "ImportDirective",
+        "src": "135:40:34"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 15697,
+          "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IRewardDistributionRecipient.sol",
+          "file": "../interfaces/IRewardDistributionRecipient.sol",
+          "scope": 15423,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 15301,
+        "name": "ImportDirective",
+        "src": "176:56:34"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "contractDependencies": [
+            15603
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            15422,
+            15603
+          ],
+          "name": "InitialShareDistributor",
+          "scope": 15423
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IDistributor",
+                  "referencedDeclaration": 15603,
+                  "type": "contract IDistributor"
+                },
+                "id": 15302,
+                "name": "UserDefinedTypeName",
+                "src": "270:12:34"
+              }
+            ],
+            "id": 15303,
+            "name": "InheritanceSpecifier",
+            "src": "270:12:34"
+          },
+          {
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "SafeMath",
+                  "referencedDeclaration": 18687,
+                  "type": "library SafeMath"
+                },
+                "id": 15304,
+                "name": "UserDefinedTypeName",
+                "src": "295:8:34"
+              },
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 15305,
+                "name": "ElementaryTypeName",
+                "src": "308:7:34"
+              }
+            ],
+            "id": 15306,
+            "name": "UsingForDirective",
+            "src": "289:27:34"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "documentation": null,
+              "name": "Distributed"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "pool",
+                      "overrides": null,
+                      "scope": 15312,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 15307,
+                        "name": "ElementaryTypeName",
+                        "src": "340:7:34"
+                      }
+                    ],
+                    "id": 15308,
+                    "name": "VariableDeclaration",
+                    "src": "340:12:34"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "cashAmount",
+                      "overrides": null,
+                      "scope": 15312,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 15309,
+                        "name": "ElementaryTypeName",
+                        "src": "354:7:34"
+                      }
+                    ],
+                    "id": 15310,
+                    "name": "VariableDeclaration",
+                    "src": "354:18:34"
+                  }
+                ],
+                "id": 15311,
+                "name": "ParameterList",
+                "src": "339:34:34"
+              }
+            ],
+            "id": 15312,
+            "name": "EventDefinition",
+            "src": "322:52:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "292a3f7e",
+              "mutability": "mutable",
+              "name": "once",
+              "overrides": null,
+              "scope": 15422,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bool",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bool",
+                  "type": "bool"
+                },
+                "id": 15313,
+                "name": "ElementaryTypeName",
+                "src": "380:4:34"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "74727565",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "bool",
+                  "type": "bool",
+                  "value": "true"
+                },
+                "id": 15314,
+                "name": "Literal",
+                "src": "399:4:34"
+              }
+            ],
+            "id": 15315,
+            "name": "VariableDeclaration",
+            "src": "380:23:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "a8d5fd65",
+              "mutability": "mutable",
+              "name": "share",
+              "overrides": null,
+              "scope": 15422,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IERC20",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IERC20",
+                  "referencedDeclaration": 19328,
+                  "type": "contract IERC20"
+                },
+                "id": 15316,
+                "name": "UserDefinedTypeName",
+                "src": "410:6:34"
+              }
+            ],
+            "id": 15317,
+            "name": "VariableDeclaration",
+            "src": "410:19:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "9530552a",
+              "mutability": "mutable",
+              "name": "usdtfacLPPool",
+              "overrides": null,
+              "scope": 15422,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IRewardDistributionRecipient",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IRewardDistributionRecipient",
+                  "referencedDeclaration": 15696,
+                  "type": "contract IRewardDistributionRecipient"
+                },
+                "id": 15318,
+                "name": "UserDefinedTypeName",
+                "src": "435:28:34"
+              }
+            ],
+            "id": 15319,
+            "name": "VariableDeclaration",
+            "src": "435:49:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "6e9d0b4e",
+              "mutability": "mutable",
+              "name": "usdtfacInitialBalance",
+              "overrides": null,
+              "scope": 15422,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 15320,
+                "name": "ElementaryTypeName",
+                "src": "490:7:34"
+              }
+            ],
+            "id": 15321,
+            "name": "VariableDeclaration",
+            "src": "490:36:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "47ebc5a0",
+              "mutability": "mutable",
+              "name": "usdtfasLPPool",
+              "overrides": null,
+              "scope": 15422,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IRewardDistributionRecipient",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IRewardDistributionRecipient",
+                  "referencedDeclaration": 15696,
+                  "type": "contract IRewardDistributionRecipient"
+                },
+                "id": 15322,
+                "name": "UserDefinedTypeName",
+                "src": "532:28:34"
+              }
+            ],
+            "id": 15323,
+            "name": "VariableDeclaration",
+            "src": "532:49:34"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "11b61945",
+              "mutability": "mutable",
+              "name": "usdtfasInitialBalance",
+              "overrides": null,
+              "scope": 15422,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 15324,
+                "name": "ElementaryTypeName",
+                "src": "587:7:34"
+              }
+            ],
+            "id": 15325,
+            "name": "VariableDeclaration",
+            "src": "587:36:34"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 15422,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_share",
+                      "overrides": null,
+                      "scope": 15359,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IERC20",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IERC20",
+                          "referencedDeclaration": 19328,
+                          "type": "contract IERC20"
+                        },
+                        "id": 15326,
+                        "name": "UserDefinedTypeName",
+                        "src": "651:6:34"
+                      }
+                    ],
+                    "id": 15327,
+                    "name": "VariableDeclaration",
+                    "src": "651:13:34"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_usdtfacLPPool",
+                      "overrides": null,
+                      "scope": 15359,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IRewardDistributionRecipient",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IRewardDistributionRecipient",
+                          "referencedDeclaration": 15696,
+                          "type": "contract IRewardDistributionRecipient"
+                        },
+                        "id": 15328,
+                        "name": "UserDefinedTypeName",
+                        "src": "674:28:34"
+                      }
+                    ],
+                    "id": 15329,
+                    "name": "VariableDeclaration",
+                    "src": "674:43:34"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_usdtfacInitialBalance",
+                      "overrides": null,
+                      "scope": 15359,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 15330,
+                        "name": "ElementaryTypeName",
+                        "src": "727:7:34"
+                      }
+                    ],
+                    "id": 15331,
+                    "name": "VariableDeclaration",
+                    "src": "727:30:34"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_usdtfasLPPool",
+                      "overrides": null,
+                      "scope": 15359,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IRewardDistributionRecipient",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IRewardDistributionRecipient",
+                          "referencedDeclaration": 15696,
+                          "type": "contract IRewardDistributionRecipient"
+                        },
+                        "id": 15332,
+                        "name": "UserDefinedTypeName",
+                        "src": "767:28:34"
+                      }
+                    ],
+                    "id": 15333,
+                    "name": "VariableDeclaration",
+                    "src": "767:43:34"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_usdtfasInitialBalance",
+                      "overrides": null,
+                      "scope": 15359,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 15334,
+                        "name": "ElementaryTypeName",
+                        "src": "820:7:34"
+                      }
+                    ],
+                    "id": 15335,
+                    "name": "VariableDeclaration",
+                    "src": "820:30:34"
+                  }
+                ],
+                "id": 15336,
+                "name": "ParameterList",
+                "src": "641:215:34"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15337,
+                "name": "ParameterList",
+                "src": "864:0:34"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract IERC20"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15317,
+                              "type": "contract IERC20",
+                              "value": "share"
+                            },
+                            "id": 15338,
+                            "name": "Identifier",
+                            "src": "874:5:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15327,
+                              "type": "contract IERC20",
+                              "value": "_share"
+                            },
+                            "id": 15339,
+                            "name": "Identifier",
+                            "src": "882:6:34"
+                          }
+                        ],
+                        "id": 15340,
+                        "name": "Assignment",
+                        "src": "874:14:34"
+                      }
+                    ],
+                    "id": 15341,
+                    "name": "ExpressionStatement",
+                    "src": "874:14:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract IRewardDistributionRecipient"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15319,
+                              "type": "contract IRewardDistributionRecipient",
+                              "value": "usdtfacLPPool"
+                            },
+                            "id": 15342,
+                            "name": "Identifier",
+                            "src": "898:13:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15329,
+                              "type": "contract IRewardDistributionRecipient",
+                              "value": "_usdtfacLPPool"
+                            },
+                            "id": 15343,
+                            "name": "Identifier",
+                            "src": "914:14:34"
+                          }
+                        ],
+                        "id": 15344,
+                        "name": "Assignment",
+                        "src": "898:30:34"
+                      }
+                    ],
+                    "id": 15345,
+                    "name": "ExpressionStatement",
+                    "src": "898:30:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15321,
+                              "type": "uint256",
+                              "value": "usdtfacInitialBalance"
+                            },
+                            "id": 15346,
+                            "name": "Identifier",
+                            "src": "938:21:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15331,
+                              "type": "uint256",
+                              "value": "_usdtfacInitialBalance"
+                            },
+                            "id": 15347,
+                            "name": "Identifier",
+                            "src": "962:22:34"
+                          }
+                        ],
+                        "id": 15348,
+                        "name": "Assignment",
+                        "src": "938:46:34"
+                      }
+                    ],
+                    "id": 15349,
+                    "name": "ExpressionStatement",
+                    "src": "938:46:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract IRewardDistributionRecipient"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15323,
+                              "type": "contract IRewardDistributionRecipient",
+                              "value": "usdtfasLPPool"
+                            },
+                            "id": 15350,
+                            "name": "Identifier",
+                            "src": "994:13:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15333,
+                              "type": "contract IRewardDistributionRecipient",
+                              "value": "_usdtfasLPPool"
+                            },
+                            "id": 15351,
+                            "name": "Identifier",
+                            "src": "1010:14:34"
+                          }
+                        ],
+                        "id": 15352,
+                        "name": "Assignment",
+                        "src": "994:30:34"
+                      }
+                    ],
+                    "id": 15353,
+                    "name": "ExpressionStatement",
+                    "src": "994:30:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15325,
+                              "type": "uint256",
+                              "value": "usdtfasInitialBalance"
+                            },
+                            "id": 15354,
+                            "name": "Identifier",
+                            "src": "1034:21:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15335,
+                              "type": "uint256",
+                              "value": "_usdtfasInitialBalance"
+                            },
+                            "id": 15355,
+                            "name": "Identifier",
+                            "src": "1058:22:34"
+                          }
+                        ],
+                        "id": 15356,
+                        "name": "Assignment",
+                        "src": "1034:46:34"
+                      }
+                    ],
+                    "id": 15357,
+                    "name": "ExpressionStatement",
+                    "src": "1034:46:34"
+                  }
+                ],
+                "id": 15358,
+                "name": "Block",
+                "src": "864:223:34"
+              }
+            ],
+            "id": 15359,
+            "name": "FunctionDefinition",
+            "src": "630:457:34"
+          },
+          {
+            "attributes": {
+              "baseFunctions": [
+                15602
+              ],
+              "documentation": null,
+              "functionSelector": "e4fc6b6d",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "distribute",
+              "scope": 15422,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "overrides": [
+                    null
+                  ]
+                },
+                "id": 15361,
+                "name": "OverrideSpecifier",
+                "src": "1122:8:34"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15360,
+                "name": "ParameterList",
+                "src": "1112:2:34"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 15362,
+                "name": "ParameterList",
+                "src": "1131:0:34"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_b854faa601f71f2a8f0147f998ba716be3eaa1676925fd0af69acf161d590ecc",
+                                  "typeString": "literal_string \"InitialShareDistributor: you cannot run this function twice\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                -18,
+                                -18
+                              ],
+                              "referencedDeclaration": -18,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 15363,
+                            "name": "Identifier",
+                            "src": "1141:7:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15315,
+                              "type": "bool",
+                              "value": "once"
+                            },
+                            "id": 15364,
+                            "name": "Identifier",
+                            "src": "1162:4:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "496e697469616c53686172654469737472696275746f723a20796f752063616e6e6f742072756e20746869732066756e6374696f6e207477696365",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"InitialShareDistributor: you cannot run this function twice\"",
+                              "value": "InitialShareDistributor: you cannot run this function twice"
+                            },
+                            "id": 15365,
+                            "name": "Literal",
+                            "src": "1180:61:34"
+                          }
+                        ],
+                        "id": 15366,
+                        "name": "FunctionCall",
+                        "src": "1141:110:34"
+                      }
+                    ],
+                    "id": 15367,
+                    "name": "ExpressionStatement",
+                    "src": "1141:110:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transfer",
+                              "referencedDeclaration": 19277,
+                              "type": "function (address,uint256) external returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15317,
+                                  "type": "contract IERC20",
+                                  "value": "share"
+                                },
+                                "id": 15368,
+                                "name": "Identifier",
+                                "src": "1262:5:34"
+                              }
+                            ],
+                            "id": 15370,
+                            "name": "MemberAccess",
+                            "src": "1262:14:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                                      "typeString": "contract IRewardDistributionRecipient"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "address",
+                                      "type": null
+                                    },
+                                    "id": 15371,
+                                    "name": "ElementaryTypeName",
+                                    "src": "1277:7:34"
+                                  }
+                                ],
+                                "id": 15372,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1277:7:34"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15319,
+                                  "type": "contract IRewardDistributionRecipient",
+                                  "value": "usdtfacLPPool"
+                                },
+                                "id": 15373,
+                                "name": "Identifier",
+                                "src": "1285:13:34"
+                              }
+                            ],
+                            "id": 15374,
+                            "name": "FunctionCall",
+                            "src": "1277:22:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15321,
+                              "type": "uint256",
+                              "value": "usdtfacInitialBalance"
+                            },
+                            "id": 15375,
+                            "name": "Identifier",
+                            "src": "1301:21:34"
+                          }
+                        ],
+                        "id": 15376,
+                        "name": "FunctionCall",
+                        "src": "1262:61:34"
+                      }
+                    ],
+                    "id": 15377,
+                    "name": "ExpressionStatement",
+                    "src": "1262:61:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "notifyRewardAmount",
+                              "referencedDeclaration": 15671,
+                              "type": "function (uint256) external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15319,
+                                  "type": "contract IRewardDistributionRecipient",
+                                  "value": "usdtfacLPPool"
+                                },
+                                "id": 15378,
+                                "name": "Identifier",
+                                "src": "1333:13:34"
+                              }
+                            ],
+                            "id": 15380,
+                            "name": "MemberAccess",
+                            "src": "1333:32:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15321,
+                              "type": "uint256",
+                              "value": "usdtfacInitialBalance"
+                            },
+                            "id": 15381,
+                            "name": "Identifier",
+                            "src": "1366:21:34"
+                          }
+                        ],
+                        "id": 15382,
+                        "name": "FunctionCall",
+                        "src": "1333:55:34"
+                      }
+                    ],
+                    "id": 15383,
+                    "name": "ExpressionStatement",
+                    "src": "1333:55:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15312,
+                              "type": "function (address,uint256)",
+                              "value": "Distributed"
+                            },
+                            "id": 15384,
+                            "name": "Identifier",
+                            "src": "1403:11:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                                      "typeString": "contract IRewardDistributionRecipient"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "address",
+                                      "type": null
+                                    },
+                                    "id": 15385,
+                                    "name": "ElementaryTypeName",
+                                    "src": "1415:7:34"
+                                  }
+                                ],
+                                "id": 15386,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1415:7:34"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15319,
+                                  "type": "contract IRewardDistributionRecipient",
+                                  "value": "usdtfacLPPool"
+                                },
+                                "id": 15387,
+                                "name": "Identifier",
+                                "src": "1423:13:34"
+                              }
+                            ],
+                            "id": 15388,
+                            "name": "FunctionCall",
+                            "src": "1415:22:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15321,
+                              "type": "uint256",
+                              "value": "usdtfacInitialBalance"
+                            },
+                            "id": 15389,
+                            "name": "Identifier",
+                            "src": "1439:21:34"
+                          }
+                        ],
+                        "id": 15390,
+                        "name": "FunctionCall",
+                        "src": "1403:58:34"
+                      }
+                    ],
+                    "id": 15391,
+                    "name": "EmitStatement",
+                    "src": "1398:63:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "transfer",
+                              "referencedDeclaration": 19277,
+                              "type": "function (address,uint256) external returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15317,
+                                  "type": "contract IERC20",
+                                  "value": "share"
+                                },
+                                "id": 15392,
+                                "name": "Identifier",
+                                "src": "1472:5:34"
+                              }
+                            ],
+                            "id": 15394,
+                            "name": "MemberAccess",
+                            "src": "1472:14:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                                      "typeString": "contract IRewardDistributionRecipient"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "address",
+                                      "type": null
+                                    },
+                                    "id": 15395,
+                                    "name": "ElementaryTypeName",
+                                    "src": "1487:7:34"
+                                  }
+                                ],
+                                "id": 15396,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1487:7:34"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15323,
+                                  "type": "contract IRewardDistributionRecipient",
+                                  "value": "usdtfasLPPool"
+                                },
+                                "id": 15397,
+                                "name": "Identifier",
+                                "src": "1495:13:34"
+                              }
+                            ],
+                            "id": 15398,
+                            "name": "FunctionCall",
+                            "src": "1487:22:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15325,
+                              "type": "uint256",
+                              "value": "usdtfasInitialBalance"
+                            },
+                            "id": 15399,
+                            "name": "Identifier",
+                            "src": "1511:21:34"
+                          }
+                        ],
+                        "id": 15400,
+                        "name": "FunctionCall",
+                        "src": "1472:61:34"
+                      }
+                    ],
+                    "id": 15401,
+                    "name": "ExpressionStatement",
+                    "src": "1472:61:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "notifyRewardAmount",
+                              "referencedDeclaration": 15671,
+                              "type": "function (uint256) external"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15323,
+                                  "type": "contract IRewardDistributionRecipient",
+                                  "value": "usdtfasLPPool"
+                                },
+                                "id": 15402,
+                                "name": "Identifier",
+                                "src": "1543:13:34"
+                              }
+                            ],
+                            "id": 15404,
+                            "name": "MemberAccess",
+                            "src": "1543:32:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15325,
+                              "type": "uint256",
+                              "value": "usdtfasInitialBalance"
+                            },
+                            "id": 15405,
+                            "name": "Identifier",
+                            "src": "1576:21:34"
+                          }
+                        ],
+                        "id": 15406,
+                        "name": "FunctionCall",
+                        "src": "1543:55:34"
+                      }
+                    ],
+                    "id": 15407,
+                    "name": "ExpressionStatement",
+                    "src": "1543:55:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15312,
+                              "type": "function (address,uint256)",
+                              "value": "Distributed"
+                            },
+                            "id": 15408,
+                            "name": "Identifier",
+                            "src": "1613:11:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_IRewardDistributionRecipient_$15696",
+                                      "typeString": "contract IRewardDistributionRecipient"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "address",
+                                      "type": null
+                                    },
+                                    "id": 15409,
+                                    "name": "ElementaryTypeName",
+                                    "src": "1625:7:34"
+                                  }
+                                ],
+                                "id": 15410,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1625:7:34"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 15323,
+                                  "type": "contract IRewardDistributionRecipient",
+                                  "value": "usdtfasLPPool"
+                                },
+                                "id": 15411,
+                                "name": "Identifier",
+                                "src": "1633:13:34"
+                              }
+                            ],
+                            "id": 15412,
+                            "name": "FunctionCall",
+                            "src": "1625:22:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15325,
+                              "type": "uint256",
+                              "value": "usdtfasInitialBalance"
+                            },
+                            "id": 15413,
+                            "name": "Identifier",
+                            "src": "1649:21:34"
+                          }
+                        ],
+                        "id": 15414,
+                        "name": "FunctionCall",
+                        "src": "1613:58:34"
+                      }
+                    ],
+                    "id": 15415,
+                    "name": "EmitStatement",
+                    "src": "1608:63:34"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 15315,
+                              "type": "bool",
+                              "value": "once"
+                            },
+                            "id": 15416,
+                            "name": "Identifier",
+                            "src": "1682:4:34"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "66616c7365",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "false"
+                            },
+                            "id": 15417,
+                            "name": "Literal",
+                            "src": "1689:5:34"
+                          }
+                        ],
+                        "id": 15418,
+                        "name": "Assignment",
+                        "src": "1682:12:34"
+                      }
+                    ],
+                    "id": 15419,
+                    "name": "ExpressionStatement",
+                    "src": "1682:12:34"
+                  }
+                ],
+                "id": 15420,
+                "name": "Block",
+                "src": "1131:570:34"
+              }
+            ],
+            "id": 15421,
+            "name": "FunctionDefinition",
+            "src": "1093:608:34"
+          }
+        ],
+        "id": 15422,
+        "name": "ContractDefinition",
+        "src": "234:1469:34"
+      }
+    ],
+    "id": 15423,
+    "name": "SourceUnit",
+    "src": "0:1704:34"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {
+        "0xb649c98f58055c520df0dcb5709eff2e931217ff2fb1e21376130d31bbb1c0af": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "pool",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "cashAmount",
+              "type": "uint256"
+            }
+          ],
+          "name": "Distributed",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xe6f66BD677BC0761B20a7Ed220a0BDe82c5937d2",
+      "transactionHash": "0x4fc735b5d3ac41404d7b13aeef00ea492083963a62e29a2a602d7a7178e33aae"
+    }
+  },
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-01-19T03:52:21.532Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

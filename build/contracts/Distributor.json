@@ -1,0 +1,1137 @@
+{
+  "contractName": "Distributor",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IDistributor[]",
+          "name": "_distributors",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "distributors",
+      "outputs": [
+        {
+          "internalType": "contract IDistributor",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "distribute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract IDistributor[]\",\"name\":\"_distributors\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"distribute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"distributors\",\"outputs\":[{\"internalType\":\"contract IDistributor\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/Distributor.sol\":\"Distributor\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/Distributor.sol\":{\"keccak256\":\"0xa986d2b2a46f5d217705e7c24c383e5982c9d98003c0904ea36590dc8773c50b\",\"urls\":[\"bzz-raw://848c62a0e5c08001c85b8dd527dda2c9b950d04c7e5824631bcdbd4de5c9df6f\",\"dweb:/ipfs/Qmc26HZ4p5gtFMqxh4d4j3FXxPqXBwNxjfReNtJeVRSVW3\"]},\"/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol\":{\"keccak256\":\"0xea1e150732abf6a78e89314ebc297fdab51065aa9ad329fee4afbcf1dcc9a9ff\",\"urls\":[\"bzz-raw://702e8b7b0ad578176c3e4ab69892a6ac796eeccb7d881e696e7dfaf65fe7a441\",\"dweb:/ipfs/QmX8PW8MeDmMa6TQnSwVvoZJ9UHyaDDiEize3LW8tGFeBb\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103813803806103818339818101604052602081101561003357600080fd5b810190808051604051939291908464010000000082111561005357600080fd5b8382019150602082018581111561006957600080fd5b825186602082028301116401000000008211171561008657600080fd5b8083526020830192505050908051906020019060200280838360005b838110156100bd5780820151818401526020810190506100a2565b5050505090500160405250505080600090805190602001906100e09291906100e7565b50506101ac565b828054828255906000526020600020908101928215610160579160200282015b8281111561015f5782518260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555091602001919060010190610107565b5b50905061016d9190610171565b5090565b5b808211156101a857600081816101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905550600101610172565b5090565b6101c6806101bb6000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806350b492ba1461003b578063e4fc6b6d14610093575b600080fd5b6100676004803603602081101561005157600080fd5b810190808035906020019092919050505061009d565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61009b6100d9565b005b600081815481106100aa57fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60005b60008054905081101561018d57600081815481106100f657fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663e4fc6b6d6040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561016857600080fd5b505af115801561017c573d6000803e3d6000fd5b5050505080806001019150506100dc565b5056fea264697066735822122005ec49a72cc1615e9bd368cd1f7dee315d9d8eb47de19566bd611a22f68001a764736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806350b492ba1461003b578063e4fc6b6d14610093575b600080fd5b6100676004803603602081101561005157600080fd5b810190808035906020019092919050505061009d565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61009b6100d9565b005b600081815481106100aa57fe5b906000526020600020016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60005b60008054905081101561018d57600081815481106100f657fe5b9060005260206000200160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663e4fc6b6d6040518163ffffffff1660e01b8152600401600060405180830381600087803b15801561016857600080fd5b505af115801561017c573d6000803e3d6000fd5b5050505080806001019150506100dc565b5056fea264697066735822122005ec49a72cc1615e9bd368cd1f7dee315d9d8eb47de19566bd611a22f68001a764736f6c634300060c0033",
+  "immutableReferences": {},
+  "sourceMap": "66:325:3:-:0;;;134:101;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;215:13;200:12;:28;;;;;;;;;;;;:::i;:::-;;134:101;66:325;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "66:325:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;93:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;241:148;;;:::i;:::-;;93:34;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;241:148::-;285:9;280:103;304:12;:19;;;;300:1;:23;280:103;;;344:12;357:1;344:15;;;;;;;;;;;;;;;;;;;;;;;;;:26;;;:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;325:3;;;;;;;280:103;;;;241:148::o",
+  "source": "pragma solidity ^0.6.0;\n\nimport './interfaces/IDistributor.sol';\n\ncontract Distributor {\n    IDistributor[] public distributors;\n\n    constructor(IDistributor[] memory _distributors) public {\n        distributors = _distributors;\n    }\n\n    function distribute() public {\n        for (uint256 i = 0; i < distributors.length; i++) {\n            distributors[i].distribute();\n        }\n    }\n}\n",
+  "sourcePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/Distributor.sol",
+  "ast": {
+    "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/Distributor.sol",
+    "exportedSymbols": {
+      "Distributor": [
+        809
+      ]
+    },
+    "id": 810,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 770,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+        "file": "./interfaces/IDistributor.sol",
+        "id": 771,
+        "nodeType": "ImportDirective",
+        "scope": 810,
+        "sourceUnit": 15604,
+        "src": "25:39:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 809,
+        "linearizedBaseContracts": [
+          809
+        ],
+        "name": "Distributor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "50b492ba",
+            "id": 774,
+            "mutability": "mutable",
+            "name": "distributors",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 809,
+            "src": "93:34:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage",
+              "typeString": "contract IDistributor[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 772,
+                "name": "IDistributor",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 15603,
+                "src": "93:12:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_contract$_IDistributor_$15603",
+                  "typeString": "contract IDistributor"
+                }
+              },
+              "id": 773,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "93:14:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage_ptr",
+                "typeString": "contract IDistributor[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 784,
+              "nodeType": "Block",
+              "src": "190:45:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 782,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 780,
+                      "name": "distributors",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 774,
+                      "src": "200:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage",
+                        "typeString": "contract IDistributor[] storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 781,
+                      "name": "_distributors",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 777,
+                      "src": "215:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_memory_ptr",
+                        "typeString": "contract IDistributor[] memory"
+                      }
+                    },
+                    "src": "200:28:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage",
+                      "typeString": "contract IDistributor[] storage ref"
+                    }
+                  },
+                  "id": 783,
+                  "nodeType": "ExpressionStatement",
+                  "src": "200:28:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 785,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 778,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 777,
+                  "mutability": "mutable",
+                  "name": "_distributors",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 785,
+                  "src": "146:35:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_memory_ptr",
+                    "typeString": "contract IDistributor[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 775,
+                      "name": "IDistributor",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 15603,
+                      "src": "146:12:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IDistributor_$15603",
+                        "typeString": "contract IDistributor"
+                      }
+                    },
+                    "id": 776,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "146:14:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage_ptr",
+                      "typeString": "contract IDistributor[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "145:37:3"
+            },
+            "returnParameters": {
+              "id": 779,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "190:0:3"
+            },
+            "scope": 809,
+            "src": "134:101:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 807,
+              "nodeType": "Block",
+              "src": "270:119:3",
+              "statements": [
+                {
+                  "body": {
+                    "id": 805,
+                    "nodeType": "Block",
+                    "src": "330:53:3",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "expression": {
+                              "argumentTypes": null,
+                              "baseExpression": {
+                                "argumentTypes": null,
+                                "id": 799,
+                                "name": "distributors",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 774,
+                                "src": "344:12:3",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage",
+                                  "typeString": "contract IDistributor[] storage ref"
+                                }
+                              },
+                              "id": 801,
+                              "indexExpression": {
+                                "argumentTypes": null,
+                                "id": 800,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 789,
+                                "src": "357:1:3",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "344:15:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IDistributor_$15603",
+                                "typeString": "contract IDistributor"
+                              }
+                            },
+                            "id": 802,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "distribute",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 15602,
+                            "src": "344:26:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_nonpayable$__$returns$__$",
+                              "typeString": "function () external"
+                            }
+                          },
+                          "id": 803,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "344:28:3",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 804,
+                        "nodeType": "ExpressionStatement",
+                        "src": "344:28:3"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 795,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 792,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 789,
+                      "src": "300:1:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 793,
+                        "name": "distributors",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 774,
+                        "src": "304:12:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_contract$_IDistributor_$15603_$dyn_storage",
+                          "typeString": "contract IDistributor[] storage ref"
+                        }
+                      },
+                      "id": 794,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "304:19:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "300:23:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 806,
+                  "initializationExpression": {
+                    "assignments": [
+                      789
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 789,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "overrides": null,
+                        "scope": 806,
+                        "src": "285:9:3",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 788,
+                          "name": "uint256",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "285:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "value": null,
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 791,
+                    "initialValue": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 790,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "297:1:3",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "285:13:3"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 797,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "325:3:3",
+                      "subExpression": {
+                        "argumentTypes": null,
+                        "id": 796,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 789,
+                        "src": "325:1:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 798,
+                    "nodeType": "ExpressionStatement",
+                    "src": "325:3:3"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "280:103:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "e4fc6b6d",
+            "id": 808,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "distribute",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 786,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "260:2:3"
+            },
+            "returnParameters": {
+              "id": 787,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "270:0:3"
+            },
+            "scope": 809,
+            "src": "241:148:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 810,
+        "src": "66:325:3"
+      }
+    ],
+    "src": "0:392:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/Distributor.sol",
+      "exportedSymbols": {
+        "Distributor": [
+          809
+        ]
+      },
+      "license": null
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".0"
+          ]
+        },
+        "id": 770,
+        "name": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 15604,
+          "absolutePath": "/Volumes/Development/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+          "file": "./interfaces/IDistributor.sol",
+          "scope": 810,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 771,
+        "name": "ImportDirective",
+        "src": "25:39:3"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            809
+          ],
+          "name": "Distributor",
+          "scope": 810
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "50b492ba",
+              "mutability": "mutable",
+              "name": "distributors",
+              "overrides": null,
+              "scope": 809,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IDistributor[]",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "contract IDistributor[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "IDistributor",
+                      "referencedDeclaration": 15603,
+                      "type": "contract IDistributor"
+                    },
+                    "id": 772,
+                    "name": "UserDefinedTypeName",
+                    "src": "93:12:3"
+                  }
+                ],
+                "id": 773,
+                "name": "ArrayTypeName",
+                "src": "93:14:3"
+              }
+            ],
+            "id": 774,
+            "name": "VariableDeclaration",
+            "src": "93:34:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "overrides": null,
+              "scope": 809,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_distributors",
+                      "overrides": null,
+                      "scope": 785,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "contract IDistributor[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "contract IDistributor[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "IDistributor",
+                              "referencedDeclaration": 15603,
+                              "type": "contract IDistributor"
+                            },
+                            "id": 775,
+                            "name": "UserDefinedTypeName",
+                            "src": "146:12:3"
+                          }
+                        ],
+                        "id": 776,
+                        "name": "ArrayTypeName",
+                        "src": "146:14:3"
+                      }
+                    ],
+                    "id": 777,
+                    "name": "VariableDeclaration",
+                    "src": "146:35:3"
+                  }
+                ],
+                "id": 778,
+                "name": "ParameterList",
+                "src": "145:37:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 779,
+                "name": "ParameterList",
+                "src": "190:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract IDistributor[] storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 774,
+                              "type": "contract IDistributor[] storage ref",
+                              "value": "distributors"
+                            },
+                            "id": 780,
+                            "name": "Identifier",
+                            "src": "200:12:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 777,
+                              "type": "contract IDistributor[] memory",
+                              "value": "_distributors"
+                            },
+                            "id": 781,
+                            "name": "Identifier",
+                            "src": "215:13:3"
+                          }
+                        ],
+                        "id": 782,
+                        "name": "Assignment",
+                        "src": "200:28:3"
+                      }
+                    ],
+                    "id": 783,
+                    "name": "ExpressionStatement",
+                    "src": "200:28:3"
+                  }
+                ],
+                "id": 784,
+                "name": "Block",
+                "src": "190:45:3"
+              }
+            ],
+            "id": 785,
+            "name": "FunctionDefinition",
+            "src": "134:101:3"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "e4fc6b6d",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "distribute",
+              "overrides": null,
+              "scope": 809,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 786,
+                "name": "ParameterList",
+                "src": "260:2:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 787,
+                "name": "ParameterList",
+                "src": "270:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "assignments": [
+                            789
+                          ]
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "constant": false,
+                              "mutability": "mutable",
+                              "name": "i",
+                              "overrides": null,
+                              "scope": 806,
+                              "stateVariable": false,
+                              "storageLocation": "default",
+                              "type": "uint256",
+                              "value": null,
+                              "visibility": "internal"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint256",
+                                  "type": "uint256"
+                                },
+                                "id": 788,
+                                "name": "ElementaryTypeName",
+                                "src": "285:7:3"
+                              }
+                            ],
+                            "id": 789,
+                            "name": "VariableDeclaration",
+                            "src": "285:9:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 790,
+                            "name": "Literal",
+                            "src": "297:1:3"
+                          }
+                        ],
+                        "id": 791,
+                        "name": "VariableDeclarationStatement",
+                        "src": "285:13:3"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 789,
+                              "type": "uint256",
+                              "value": "i"
+                            },
+                            "id": 792,
+                            "name": "Identifier",
+                            "src": "300:1:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 774,
+                                  "type": "contract IDistributor[] storage ref",
+                                  "value": "distributors"
+                                },
+                                "id": 793,
+                                "name": "Identifier",
+                                "src": "304:12:3"
+                              }
+                            ],
+                            "id": 794,
+                            "name": "MemberAccess",
+                            "src": "304:19:3"
+                          }
+                        ],
+                        "id": 795,
+                        "name": "BinaryOperation",
+                        "src": "300:23:3"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 789,
+                                  "type": "uint256",
+                                  "value": "i"
+                                },
+                                "id": 796,
+                                "name": "Identifier",
+                                "src": "325:1:3"
+                              }
+                            ],
+                            "id": 797,
+                            "name": "UnaryOperation",
+                            "src": "325:3:3"
+                          }
+                        ],
+                        "id": 798,
+                        "name": "ExpressionStatement",
+                        "src": "325:3:3"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "arguments": [
+                                    null
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "tuple()",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        null
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "distribute",
+                                      "referencedDeclaration": 15602,
+                                      "type": "function () external"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "type": "contract IDistributor"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 774,
+                                              "type": "contract IDistributor[] storage ref",
+                                              "value": "distributors"
+                                            },
+                                            "id": 799,
+                                            "name": "Identifier",
+                                            "src": "344:12:3"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 789,
+                                              "type": "uint256",
+                                              "value": "i"
+                                            },
+                                            "id": 800,
+                                            "name": "Identifier",
+                                            "src": "357:1:3"
+                                          }
+                                        ],
+                                        "id": 801,
+                                        "name": "IndexAccess",
+                                        "src": "344:15:3"
+                                      }
+                                    ],
+                                    "id": 802,
+                                    "name": "MemberAccess",
+                                    "src": "344:26:3"
+                                  }
+                                ],
+                                "id": 803,
+                                "name": "FunctionCall",
+                                "src": "344:28:3"
+                              }
+                            ],
+                            "id": 804,
+                            "name": "ExpressionStatement",
+                            "src": "344:28:3"
+                          }
+                        ],
+                        "id": 805,
+                        "name": "Block",
+                        "src": "330:53:3"
+                      }
+                    ],
+                    "id": 806,
+                    "name": "ForStatement",
+                    "src": "280:103:3"
+                  }
+                ],
+                "id": 807,
+                "name": "Block",
+                "src": "270:119:3"
+              }
+            ],
+            "id": 808,
+            "name": "FunctionDefinition",
+            "src": "241:148:3"
+          }
+        ],
+        "id": 809,
+        "name": "ContractDefinition",
+        "src": "66:325:3"
+      }
+    ],
+    "id": 810,
+    "name": "SourceUnit",
+    "src": "0:392:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xD6E4C722004d102041d83AF3De13961FEdCF45CF",
+      "transactionHash": "0x82ad665ae7570d4243c81a309f56f431859280cb7871b8735d6f13be1c29f5c2"
+    }
+  },
+  "schemaVersion": "3.3.3",
+  "updatedAt": "2021-01-19T03:52:21.526Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
