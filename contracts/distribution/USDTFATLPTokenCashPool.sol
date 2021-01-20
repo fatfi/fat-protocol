@@ -72,7 +72,6 @@ IRewardDistributionRecipient
     IERC20 public fatToken;
     uint256 public DURATION = 5 days;
 
-    uint256 public initreward = 20000 * 10**18; // 20,000 Cash
     uint256 public starttime; // starttime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
@@ -145,11 +144,16 @@ IRewardDistributionRecipient
     }
 
     function earned2(address account) public view returns (uint256) {
+        if(totalSupply() == 0){
+            uint256 total_ = rewardPerTokenStored;
+        }else{
+            uint256 total_ = totalSupply();
+        }
         return
         balanceOf(account)
         .mul(
             lastBlockRewardApplicable(account).mul(
-                reward_per_block.mul(1e18).div(totalSupply())
+                reward_per_block.mul(1e18).div(total_)
             )
         )
         .div(1e18)
@@ -161,7 +165,6 @@ IRewardDistributionRecipient
     public
     override
     updateReward(msg.sender)
-    checkhalve
     checkStart
     {
         require(amount > 0, 'Cannot stake 0');
@@ -173,7 +176,6 @@ IRewardDistributionRecipient
     public
     override
     updateReward(msg.sender)
-    checkhalve
     checkStart
     {
         require(amount > 0, 'Cannot withdraw 0');
@@ -186,7 +188,7 @@ IRewardDistributionRecipient
         getReward();
     }
 
-    function getReward() public updateReward(msg.sender) checkhalve checkStart {
+    function getReward() public updateReward(msg.sender) checkStart {
         uint256 reward = earned(msg.sender);
         uint256 fatReward = earned2(msg.sender);
         if (reward > 0) {
@@ -202,17 +204,6 @@ IRewardDistributionRecipient
             // Trigger sending reward event
             emit RewardPaid(msg.sender, fatReward);
         }
-    }
-
-    modifier checkhalve() {
-        if (block.timestamp >= periodFinish) {
-            initreward = initreward.mul(80).div(100);
-
-            rewardRate = initreward.div(DURATION);
-            periodFinish = block.timestamp.add(DURATION);
-            emit RewardAdded(initreward);
-        }
-        _;
     }
 
     modifier checkStart() {
@@ -238,7 +229,7 @@ IRewardDistributionRecipient
             periodFinish = block.timestamp.add(DURATION);
             emit RewardAdded(reward);
         } else {
-            rewardRate = initreward.div(DURATION);
+            rewardRate = reward.div(DURATION);
             lastUpdateTime = starttime;
             periodFinish = starttime.add(DURATION);
             emit RewardAdded(reward);
