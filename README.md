@@ -32,11 +32,6 @@ There four types (Token,Cash,Bonds,Share) of assets in the Fatfi system
     Fat Shares ($FAS): receives surplus seigniorage (seigniorage left remaining after all the bonds have been redeemed).
     Fat Token ($FAT):  FAT will be reserved for liquidity rewards program after TGE
 
-## Usage
-Contract Address:
-* [Mainnet]()
-* [Ropsten](https://ropsten.etherscan.io/address/0x5f81f85a25a6e330bda410c0e7ceb35f8473b072)
-
 ## Development
 Rename `truffle-config.js.dev` to `truffle-config.js`
 ```
