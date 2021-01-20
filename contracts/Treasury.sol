@@ -1,7 +1,7 @@
 /**
   * Fat Cash Treasury contract
   * Realization function:
-  * 1. Obtain the BAC price through the oracle. According to the different FAC price, use FAC to buy FAB, or redeem FAB to obtain FAC
+  * 1. Obtain the FAC price through the oracle. According to the different FAC price, use FAC to buy FAB, or redeem FAB to obtain FAC
   * 2. According to different FAC prices, issue additional FACs and allocate the newly issued FACs to the fund treasury boardroom
   * Note: TimBear 20210107
 */
