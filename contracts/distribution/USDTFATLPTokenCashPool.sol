@@ -144,20 +144,20 @@ IRewardDistributionRecipient
     }
 
     function earned2(address account) public view returns (uint256) {
+
         if(totalSupply() == 0){
-            uint256 total_ = rewardPerTokenStored;
+            return 0;
         }else{
-            uint256 total_ = totalSupply();
-        }
-        return
-        balanceOf(account)
-        .mul(
-            lastBlockRewardApplicable(account).mul(
-                reward_per_block.mul(1e18).div(total_)
+            return
+            balanceOf(account)
+            .mul(
+                lastBlockRewardApplicable(account).mul(
+                    reward_per_block.mul(1e18).div(totalSupply())
+                )
             )
-        )
-        .div(1e18)
-        .add(fatRewards[account]);
+            .div(1e18)
+            .add(fatRewards[account]);
+        }
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
