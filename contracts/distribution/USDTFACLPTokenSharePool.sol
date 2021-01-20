@@ -71,7 +71,7 @@ contract USDTFACLPTokenSharePool is
     IERC20 public fatShare;
     uint256 public constant DURATION = 30 days;
 
-    uint256 public initreward = 180000 * 10**18; // 180,000 Shares
+    uint256 public initreward = 750000 * 10**18; // 750,000 Shares
     uint256 public starttime; // starttime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
@@ -172,7 +172,7 @@ contract USDTFACLPTokenSharePool is
 
     modifier checkhalve() {
         if (block.timestamp >= periodFinish) {
-            initreward = initreward.mul(80).div(100);
+            initreward = initreward.mul(75).div(100); // decreases 25% after every 30 days.
 
             rewardRate = initreward.div(DURATION);
             periodFinish = block.timestamp.add(DURATION);
