@@ -14,15 +14,18 @@ FATFI has some unique features over other algorithmic stablecoins.
 | Timelock 24h | [0xxxx](https://etherscan.io/token/0xxx) |
 
 ## DiffChecker
-* [Diff checker: BasisDollar and Fatfi](https://www.diffchecker.com/KVlWQm0A)
+* [Diff checker: BasisCash and Fatfi](https://www.diffchecker.com/KVlWQm0A)
 
 
 ## The Fatfi Protocol
 
 Fatfi differs from the original Basis Project in several meaningful ways:
 
-**FAT Token (FAT)** :
+**FAT Token (FAT)** : 
 FAT total supply is at 200 million FAT. With a proportion of 40% - 80 million FAT will be reserved for Liquidity Rewards Program. The base reward is 12 FAT per block divided across many pools
+
+**Multiple Reward (FAT+FAC)** :
+This is the Exclusive pool that will give 2 rewards during the Genesis Event (USDTFATLPTokenCashPool)
 
 **A Four-token System** :
 There four types (Token,Cash,Bonds,Share) of assets in the Fatfi system
