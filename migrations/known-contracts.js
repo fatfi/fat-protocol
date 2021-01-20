@@ -4,21 +4,16 @@ module.exports = {
     // https://uniswap.org/docs/v2/smart-contracts/factory/#address
     mainnet: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
     ropsten: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
-    rinkeby: '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
-    'mainnet-fork': '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f',
   },
   UniswapV2Router02: {
     mainnet: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
     ropsten: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
-    rinkeby: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
-    'mainnet-fork': '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
   },
   DAI: {
     mainnet: '0x6b175474e89094c44da98b954eedeac495271d0f',
   },
   USDT: {
     mainnet: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
-    ropsten: '0xCa9ea716b54dC92B7f550a6EF21dcC9b0F4140ee',
   },
   USDC: {
     mainnet: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
@@ -73,6 +68,5 @@ module.exports = {
   },
   WETH: {
     mainnet: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
-    ropsten: '0x7c75DA9e2847dfa79b41C359cC3c371f30765D95',
   },
 };

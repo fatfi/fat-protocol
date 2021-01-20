@@ -16753,12 +16753,12 @@
         }
       },
       "links": {},
-      "address": "0x9cf527dc741e1F577b4B1aC72916D8c195917853",
-      "transactionHash": "0x19875413c44ddee2257f150a78b482c0852dc831eb0bc19760a57100dc71299d"
+      "address": "0x694af7fB074C0742344D0bB9d96466912dDBCf14",
+      "transactionHash": "0xf89c496260e197c0623059af1bcbc0af2f13b5c1bef1327ac5ef311cdd0ac546"
     }
   },
   "schemaVersion": "3.3.3",
-  "updatedAt": "2021-01-19T07:54:01.958Z",
+  "updatedAt": "2021-01-20T06:38:17.478Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

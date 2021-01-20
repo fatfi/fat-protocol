@@ -43,7 +43,6 @@ contract Treasury is ContractGuard, Epoch {
     bool public initialized = false;
 
     // ========== CORE
-    address public token;
     address public fund;
     address public cash;
     address public bond;
@@ -65,7 +64,6 @@ contract Treasury is ContractGuard, Epoch {
     *@notice constructor
      */
     constructor(
-        address _token,
         address _cash,
         address _bond,
         address _share,
@@ -75,7 +73,6 @@ contract Treasury is ContractGuard, Epoch {
         address _fund,
         uint256 _startTime
     ) public Epoch(1 days, _startTime, 0) {
-        token = _token;
         cash = _cash;
         bond = _bond;
         share = _share;
@@ -101,10 +98,9 @@ contract Treasury is ContractGuard, Epoch {
         _;
     }
 
-    //Modifier: Operator of the contract token , cash , bond , share boardroom must be this contract
+    //Modifier: Operator of the contract cash , bond , share boardroom must be this contract
     modifier checkOperator {
         require(
-            IFatAsset(token).operator() == address(this) &&
             IFatAsset(cash).operator() == address(this) &&
             IFatAsset(bond).operator() == address(this) &&
             IFatAsset(share).operator() == address(this) &&

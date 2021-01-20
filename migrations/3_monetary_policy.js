@@ -24,7 +24,7 @@ const ORACLE_START_DATE = Date.parse('2021-01-20T12:00:00Z') / 1000;
 
 async function migration(deployer, network, accounts) {
   let uniswap, uniswapRouter, usdt;
-  if (['dev','het'].includes(network)) {
+  if (['dev'].includes(network)) {
 
     await deployer.deploy(MockWETH);
 
@@ -109,7 +109,6 @@ async function migration(deployer, network, accounts) {
 
   await deployer.deploy(
     Treasury,
-    token.address,
     cash.address,
     Bond.address,
     Share.address,

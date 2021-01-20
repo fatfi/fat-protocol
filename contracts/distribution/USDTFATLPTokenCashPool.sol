@@ -65,27 +65,25 @@ import '../interfaces/IRewardDistributionRecipient.sol';
 import '../token/LPTokenWrapper.sol';
 
 contract USDTFATLPTokenCashPool is
-    LPTokenWrapper,
-    IRewardDistributionRecipient
+LPTokenWrapper,
+IRewardDistributionRecipient
 {
     IERC20 public fatCash;
     IERC20 public fatToken;
     uint256 public DURATION = 5 days;
 
-
-    // FAT tokens created per block.
-    uint256 public REWARD_PER_BLOCK = 12;
-
-    mapping(address => uint256) public userFatRewardDebtAtBlock; // the last block user stake
-    mapping(address => uint256) public fatRewards; // total user's fat rewards
-
-    uint256 public starttime;
+    uint256 public initreward = 20000 * 10**18; // 20,000 Cash
+    uint256 public starttime; // starttime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
     uint256 public rewardPerTokenStored;
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
+
+    uint256 public reward_per_block = 12;  // 12 fat / 1 block
+    mapping(address => uint256) public userFatRewardDebtAtBlock; // the last block user stake
+    mapping(address => uint256) public fatRewards; // total user's fat rewards
 
     event RewardAdded(uint256 reward);
     event Staked(address indexed user, uint256 amount);
@@ -104,21 +102,13 @@ contract USDTFATLPTokenCashPool is
         starttime = starttime_;
     }
 
-    modifier checkStart() {
-        require(
-            block.timestamp >= starttime,
-            'USDTFATLPTokenCashPool: not start'
-        );
-        _;
-    }
-    // Modifier: Update account reward
     modifier updateReward(address account) {
         rewardPerTokenStored = rewardPerToken();
         lastUpdateTime = lastTimeRewardApplicable();
         if (account != address(0)) {
             rewards[account] = earned(account);
             userRewardPerTokenPaid[account] = rewardPerTokenStored;
-            fatRewards[account] = earnedFat(account);
+            fatRewards[account] = earned2(account);
             userFatRewardDebtAtBlock[account] = block.number;
         }
         _;
@@ -137,29 +127,29 @@ contract USDTFATLPTokenCashPool is
             return rewardPerTokenStored;
         }
         return
-            rewardPerTokenStored.add(
-                lastTimeRewardApplicable()
-                    .sub(lastUpdateTime)
-                    .mul(rewardRate)
-                    .mul(1e18)
-                    .div(totalSupply())
-            );
+        rewardPerTokenStored.add(
+            lastTimeRewardApplicable()
+            .sub(lastUpdateTime)
+            .mul(rewardRate)
+            .mul(1e18)
+            .div(totalSupply())
+        );
     }
 
     function earned(address account) public view returns (uint256) {
         return
-            balanceOf(account)
-                .mul(rewardPerToken().sub(userRewardPerTokenPaid[account]))
-                .div(1e18)
-                .add(rewards[account]);
+        balanceOf(account)
+        .mul(rewardPerToken().sub(userRewardPerTokenPaid[account]))
+        .div(1e18)
+        .add(rewards[account]);
     }
 
-    function earnedFat(address account) public view returns (uint256) {
+    function earned2(address account) public view returns (uint256) {
         return
         balanceOf(account)
         .mul(
             lastBlockRewardApplicable(account).mul(
-                REWARD_PER_BLOCK.mul(1e18).div(totalSupply())
+                reward_per_block.mul(1e18).div(totalSupply())
             )
         )
         .div(1e18)
@@ -168,23 +158,25 @@ contract USDTFATLPTokenCashPool is
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
     function stake(uint256 amount)
-        public
-        override
-        updateReward(msg.sender)
-        checkStart
+    public
+    override
+    updateReward(msg.sender)
+    checkhalve
+    checkStart
     {
-        require(amount > 0, 'USDTFATLPTokenCashPool: Cannot stake 0');
+        require(amount > 0, 'Cannot stake 0');
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
 
     function withdraw(uint256 amount)
-        public
-        override
-        updateReward(msg.sender)
-        checkStart
+    public
+    override
+    updateReward(msg.sender)
+    checkhalve
+    checkStart
     {
-        require(amount > 0, 'USDTFATLPTokenCashPool: Cannot withdraw 0');
+        require(amount > 0, 'Cannot withdraw 0');
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
@@ -194,9 +186,9 @@ contract USDTFATLPTokenCashPool is
         getReward();
     }
 
-    function getReward() public updateReward(msg.sender) checkStart {
+    function getReward() public updateReward(msg.sender) checkhalve checkStart {
         uint256 reward = earned(msg.sender);
-        uint256 fatReward = earnedFat(msg.sender);
+        uint256 fatReward = earned2(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
             fatCash.safeTransfer(msg.sender, reward);
@@ -212,11 +204,27 @@ contract USDTFATLPTokenCashPool is
         }
     }
 
+    modifier checkhalve() {
+        if (block.timestamp >= periodFinish) {
+            initreward = initreward.mul(80).div(100);
+
+            rewardRate = initreward.div(DURATION);
+            periodFinish = block.timestamp.add(DURATION);
+            emit RewardAdded(initreward);
+        }
+        _;
+    }
+
+    modifier checkStart() {
+        require(block.timestamp >= starttime, 'not start');
+        _;
+    }
+
     function notifyRewardAmount(uint256 reward)
-        external
-        override
-        onlyRewardDistribution
-        updateReward(address(0))
+    external
+    override
+    onlyRewardDistribution
+    updateReward(address(0))
     {
         if (block.timestamp > starttime) {
             if (block.timestamp >= periodFinish) {
@@ -230,7 +238,7 @@ contract USDTFATLPTokenCashPool is
             periodFinish = block.timestamp.add(DURATION);
             emit RewardAdded(reward);
         } else {
-            rewardRate = reward.div(DURATION);
+            rewardRate = initreward.div(DURATION);
             lastUpdateTime = starttime;
             periodFinish = starttime.add(DURATION);
             emit RewardAdded(reward);
