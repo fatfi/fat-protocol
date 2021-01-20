@@ -20,25 +20,25 @@ const UniswapV2Router02 = artifacts.require('UniswapV2Router02');
 
 const HOUR = 60 * 60;
 const DAY = 86400;
-const ORACLE_START_DATE = Date.parse('2021-01-20T12:00:00Z') / 1000;
+const ORACLE_START_DATE = Date.parse('2021-01-21T12:00:00Z') / 1000;
 
 async function migration(deployer, network, accounts) {
   let uniswap, uniswapRouter, usdt;
-  if (['dev'].includes(network)) {
+  if (['dev','ropsten'].includes(network)) {
 
     await deployer.deploy(MockWETH);
 
     console.log('Deploying uniswap on dev network.');
-
+    /*
     await deployer.deploy(UniswapV2Factory, accounts[0]);
     uniswap = await UniswapV2Factory.deployed();
 
     await deployer.deploy(UniswapV2Router02, uniswap.address, MockWETH.address);
     uniswapRouter = await UniswapV2Router02.deployed();
+    */
 
-
-    // uniswap = await UniswapV2Factory.at(knownContracts.UniswapV2Factory[network]);
-    // uniswapRouter = await UniswapV2Router02.at(knownContracts.UniswapV2Router02[network]);
+    uniswap = await UniswapV2Factory.at(knownContracts.UniswapV2Factory[network]);
+    uniswapRouter = await UniswapV2Router02.at(knownContracts.UniswapV2Router02[network]);
     usdt = await deployer.deploy(MockToken, 'Tether USD', 'USDT', 6);
   } else {
     uniswap = await UniswapV2Factory.at(knownContracts.UniswapV2Factory[network]);

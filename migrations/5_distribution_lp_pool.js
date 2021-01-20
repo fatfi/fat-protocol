@@ -15,10 +15,10 @@ const USDTFATLPToken_FACPool = artifacts.require('USDTFATLPTokenCashPool')
 const UniswapV2Factory = artifacts.require('UniswapV2Factory');
 
 module.exports = async (deployer, network, accounts) => {
-  const uniswapFactory = ['dev', 'het'].includes(network)
+  const uniswapFactory = ['dev'].includes(network)
     ? await UniswapV2Factory.deployed()
     : await UniswapV2Factory.at(knownContracts.UniswapV2Factory[network]);
-  const usdt = ['dev', 'het'].includes(network)
+  const usdt = ['dev'].includes(network)
     ? await MockToken.deployed()
     : await IERC20.at(knownContracts.USDT[network]);
 
