@@ -1,6 +1,18 @@
 # FATFI.IO
 
 FATFI has some unique features over other algorithmic stablecoins.
+## Contract Addresses
+| Contract  | Address |
+| ------------- | ------------- |
+| Token ($FAT) | [0xxxx](https://etherscan.io/token/0xxx) |
+| Cash ($FAC) | [0xxxx](https://etherscan.io/token/0xxx) |
+| Share ($FAS) | [0xxxx](https://xxx) |
+| Bond ($FAB) | [0xxxx](https://xxx) |
+| Treasury | [0xxxx](https://xxx) |
+| Boardroom | [0xxxx](https://xxx) |
+| Stables Farming Pool | [0xxxx](https://xxx#code) |
+| Timelock 24h | [0xxxx](https://etherscan.io/token/0xxx) |
+
 ## DiffChecker
 * [Diff checker: BasisDollar and Fatfi](https://www.diffchecker.com/KVlWQm0A)
 
@@ -8,6 +20,7 @@ FATFI has some unique features over other algorithmic stablecoins.
 ## The Fatfi Protocol
 
 Fatfi differs from the original Basis Project in several meaningful ways:
+
 **FAT Token (FAT)** :
 FAT total supply is at 200 million FAT. With a proportion of 40% - 80 million FAT will be reserved for Liquidity Rewards Program. The base reward is 12 FAT per block divided across many pools
 
