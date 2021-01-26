@@ -6,7 +6,7 @@ node_modules/
 coverage/
 coverage.json
 truffle-config.js
-
+ropsten.deployment.log
 test/
 *.log
 deployments

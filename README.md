@@ -21,19 +21,26 @@ FATFI has some unique features over other algorithmic stablecoins.
 
 Fatfi differs from the original Basis Project in several meaningful ways:
 
-**FAT Token (FAT)** : 
+**Fat Token (FAT)** : 
 FAT total supply is at 200 million FAT. With a proportion of 40% - 80 million FAT will be reserved for Liquidity Rewards Program. The base reward is 12 FAT per block divided across many pools
 
 **Multiple Reward (FAT+FAC)** :
 This is the Exclusive pool that will give 2 rewards during the Genesis Event (USDTFATLPTokenCashPool)
 
-**A Four-token System** :
-There four types (Token,Cash,Bonds,Share) of assets in the Fatfi system
+**TBA Pools** :
+There are the exclusive pools that will give FAT(Token) rewards after TGE ,The base reward is 12 FAT per block divided across many pools:
+``FAT – FAC``
+``FAT– FAS``
+``Pools TBA (Update on next deploy)``
 
-    Fat Cash ($FAT): a stablecoin, which the protocol aims to keep value-pegged to 1USD.
+**A Three-token System** :
+There three types (Cash,Bonds,Share) of assets in the Fatfi system
+
+    Fat Cash ($FAC): a stablecoin, which the protocol aims to keep value-pegged to 1USD.
     Fat Bonds ($FAB): IOUs issued by the system to buy back Fat Cash when price($FAT) < $1. Bonds are sold at a meaningful discount to price($FAT), and redeemed at 1USD when price($FAT) normalizes to 1USD.
     Fat Shares ($FAS): receives surplus seigniorage (seigniorage left remaining after all the bonds have been redeemed).
-    Fat Token ($FAT):  FAT will be reserved for liquidity rewards program after TGE
+
+**Fat Token ($FAT)**:  FAT will be reserved for liquidity rewards program after TGE
 
 ## Development
 Rename `truffle-config.js.dev` to `truffle-config.js`

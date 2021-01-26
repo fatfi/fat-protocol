@@ -155,7 +155,6 @@ IRewardDistributionRecipient
                     reward_per_block.mul(1e18).div(totalSupply())
                 )
             )
-            .div(1e18)
             .add(fatRewards[account]);
         }
     }

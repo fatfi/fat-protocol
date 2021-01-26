@@ -175,7 +175,7 @@ contract FACESDPool is ESDWrapper, IRewardDistributionRecipient {
         uint256 newDeposit = deposits[msg.sender].add(amount);
         // Limit the total amount of mortgage per account not to exceed 20000 ESD
         require(
-            newDeposit <= 20000e6,
+            newDeposit <= 20000e18,
             'FACESDPool: deposit amount exceeds maximum 20000'
         );
         deposits[msg.sender] = newDeposit;

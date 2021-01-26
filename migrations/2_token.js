@@ -18,7 +18,7 @@ module.exports = migration
 // ============ Deploy Functions ============
 
 async function deployToken(deployer, network, accounts) {
-  await deployer.deploy(Token,"0x4c823337a345dc77Fc2620783f84F3bA29C567f1","0x919cA80bB6CEFc164C37622219424c1BDe3dFEB0","0x919cA80bB6CEFc164C37622219424c1BDe3dFEB0","0x919cA80bB6CEFc164C37622219424c1BDe3dFEB0");
+  await deployer.deploy(Token,"0x9F8A4F6950D21C535965d7ac8fB2461A1cecc905","0xCFfa1E1805aF7feA74a8FF2A59ea184c2cE83586","0xCFfa1E1805aF7feA74a8FF2A59ea184c2cE83586","0xCFfa1E1805aF7feA74a8FF2A59ea184c2cE83586");
   await deployer.deploy(Cash);
   await deployer.deploy(Bond);
   await deployer.deploy(Share);

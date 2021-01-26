@@ -175,7 +175,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
         uint256 newDeposit = deposits[msg.sender].add(amount);
         // Limit the total amount of mortgage per account not to exceed 20000 BUSD
         require(
-            newDeposit <= 20000e6,
+            newDeposit <= 20000e18,
             'FACBUSDPool: deposit amount exceeds maximum 20000'
         );
         deposits[msg.sender] = newDeposit;

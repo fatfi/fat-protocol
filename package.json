@@ -1,8 +1,8 @@
 {
-  "name": "standcash-protocol",
+  "name": "fatfi-protocol",
   "version": "0.1.0",
-  "description": "A lightweight implementation of the Stand Protocol on Ethereum",
-  "repository": "https://github.com/Stand-Cash/standcash-protocol",
+  "description": "A lightweight implementation of the Fatfi Protocol on Ethereum",
+  "repository": "https://github.com/fatfi/fat-protocol",
   "license": "MIT",
   "scripts": {
     "flatten": "truffle-flattener",
