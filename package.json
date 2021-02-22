@@ -1,7 +1,7 @@
 {
   "name": "fatfi-protocol",
-  "version": "0.1.0",
-  "description": "A lightweight implementation of the Fatfi Protocol on Ethereum",
+  "version": "0.1.1",
+  "description": "A lightweight implementation of the Fatfi Protocol on Binance Smart Chain",
   "repository": "https://github.com/fatfi/fat-protocol",
   "license": "MIT",
   "scripts": {

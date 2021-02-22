@@ -8,17 +8,17 @@ const util = require('util');
 // deployed first
 
 const Cash = artifacts.require('Cash');
-const MockToken = artifacts.require('MockToken');
+const MockBEP20 = artifacts.require('MockBEP20');
 
 // ============ Main Migration ============
 module.exports = async (deployer, network, accounts) => {
 
   const tokens = {};
   for await (const { contractName, token } of facPools) {
-    let decimals = ['USDC', 'USDT'].includes(token) ? 6 : 18;
+    let decimals = 18;
     let contractAddress = knownContracts[token][network];
     if (!contractAddress) {
-      const tokenContract = token === 'USDT' ? await MockToken.deployed() : await MockToken.new(token, token, decimals);
+      const tokenContract = token === 'BUSD' ? await MockBEP20.deployed() : await MockBEP20.new(token, token, decimals);
       contractAddress = tokenContract.address;
     }
 

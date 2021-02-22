@@ -1,7 +1,7 @@
 const {
   fasPools,
-  INITIAL_FAS_FOR_USDT_FAC,
-  INITIAL_FAS_FOR_USDT_FAS,
+  INITIAL_FAS_FOR_BUSD_FAC,
+  INITIAL_FAS_FOR_BUSD_FAS,
 } = require('./pools');
 
 // Pools
@@ -13,31 +13,31 @@ const InitialShareDistributor = artifacts.require('InitialShareDistributor');
 
 async function migration(deployer, network, accounts) {
   const unit = web3.utils.toBN(10 ** 18);
-  const totalBalanceForUSDTFAC = unit.muln(INITIAL_FAS_FOR_USDT_FAC)
-  const totalBalanceForUSDTFAS = unit.muln(INITIAL_FAS_FOR_USDT_FAS)
-  const totalBalance = totalBalanceForUSDTFAC.add(totalBalanceForUSDTFAS);
+  const totalBalanceForBUSDFAC = unit.muln(INITIAL_FAS_FOR_BUSD_FAC)
+  const totalBalanceForBUSDFAS = unit.muln(INITIAL_FAS_FOR_BUSD_FAS)
+  const totalBalance = totalBalanceForBUSDFAC.add(totalBalanceForBUSDFAS);
 
   const share = await Share.deployed();
 
-  const lpPoolUSDTFAC = artifacts.require(fasPools.USDTFAC.contractName);
-  const lpPoolUSDTFAS = artifacts.require(fasPools.USDTFAS.contractName);
+  const lpPoolBUSDFAC = artifacts.require(fasPools.BUSDFAC.contractName);
+  const lpPoolBUSDFAS = artifacts.require(fasPools.BUSDFAS.contractName);
 
   await deployer.deploy(
     InitialShareDistributor,
     share.address,
-    lpPoolUSDTFAC.address,
-    totalBalanceForUSDTFAC.toString(),
-    lpPoolUSDTFAS.address,
-    totalBalanceForUSDTFAS.toString(),
+    lpPoolBUSDFAC.address,
+    totalBalanceForBUSDFAC.toString(),
+    lpPoolBUSDFAS.address,
+    totalBalanceForBUSDFAS.toString(),
   );
   const distributor = await InitialShareDistributor.deployed();
 
   await share.mint(distributor.address, totalBalance.toString());
-  console.log(`Deposited ${INITIAL_FAS_FOR_USDT_FAC} FAS to InitialShareDistributor.`);
+  console.log(`Deposited ${INITIAL_FAS_FOR_BUSD_FAC} FAS to InitialShareDistributor.`);
 
   console.log(`Setting distributor to InitialShareDistributor (${distributor.address})`);
-  await lpPoolUSDTFAC.deployed().then(pool => pool.setRewardDistribution(distributor.address));
-  await lpPoolUSDTFAS.deployed().then(pool => pool.setRewardDistribution(distributor.address));
+  await lpPoolBUSDFAC.deployed().then(pool => pool.setRewardDistribution(distributor.address));
+  await lpPoolBUSDFAS.deployed().then(pool => pool.setRewardDistribution(distributor.address));
 
   await distributor.distribute();
 }
