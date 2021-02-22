@@ -1,13 +1,13 @@
 pragma solidity ^0.6.0;
 
-import '@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol';
+import './lib/BEP20Burnable.sol';
 import './owner/Operator.sol';
 
-contract Cash is ERC20Burnable, Operator {
+contract Cash is BEP20Burnable, Operator {
     /**
-     * @notice Constructs the Fat Cash ERC-20 contract.
+     * @notice Constructs the Fat Cash BEP-20 contract.
      */
-    constructor() public ERC20('FAC', 'FAC') {
+    constructor() public BEP20('FAC', 'FAC', 18) {
         // Mints 1 Fat Cash to contract creator for initial Uniswap oracle deployment.
         // Will be burned after oracle deployment
         _mint(msg.sender, 1 * 10**18);

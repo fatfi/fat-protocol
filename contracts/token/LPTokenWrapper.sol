@@ -1,14 +1,14 @@
 pragma solidity ^0.6.0;
 
 import '@openzeppelin/contracts/math/SafeMath.sol';
-import '@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
+import '../lib/IBEP20.sol';
+import '../lib/SafeBEP20.sol';
 
 contract LPTokenWrapper {
     using SafeMath for uint256;
-    using SafeERC20 for IERC20;
+    using SafeBEP20 for IBEP20;
 
-    IERC20 public lpt;
+    IBEP20 public lpt;
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;

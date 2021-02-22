@@ -1,25 +1,6 @@
 pragma solidity ^0.6.0;
-// K-Rewards Pools - Stablecoins
-import '../distribution/FACDAIPool.sol';
-import '../distribution/FACUSDTPool.sol';
-import '../distribution/FACUSDCPool.sol';
-import '../distribution/FACBUSDPool.sol';
-import '../distribution/FACSUSDPool.sol';
-import '../distribution/FACESDPool.sol';
-import '../distribution/FACBACPool.sol';
-import '../distribution/FACMICPool.sol';
 
-// K-Rewards Pools - Communities
-import '../distribution/FACUNIPool.sol';
-import '../distribution/FACYFIPool.sol';
-import '../distribution/FACSUSHIPool.sol';
-import '../distribution/FACCREAMPool.sol';
-import '../distribution/FACCOMPPool.sol';
-import '../distribution/FACAAVEPool.sol';
-import '../distribution/FACCRVPool.sol';
-import '../distribution/FACLINKPool.sol';
-import '../distribution/FACINCHPool.sol';
-import '../distribution/FACWETHPool.sol';
+import '../distribution/FACBUSDPool.sol';
 import '../interfaces/IDistributor.sol';
 
 contract InitialCashDistributor is IDistributor {
@@ -29,12 +10,12 @@ contract InitialCashDistributor is IDistributor {
 
     bool public once = true;
 
-    IERC20 public cash;
+    IBEP20 public cash;
     IRewardDistributionRecipient[] public pools;
     uint256 public totalInitialBalance;
 
     constructor(
-        IERC20 _cash,
+        IBEP20 _cash,
         IRewardDistributionRecipient[] memory _pools,
         uint256 _totalInitialBalance
     ) public {

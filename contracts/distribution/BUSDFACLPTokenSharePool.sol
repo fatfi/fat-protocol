@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: FATCASHRewards.sol
+* Synthetix: BUSDFACLPTokenSharePool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -38,72 +38,29 @@ pragma solidity ^0.6.0;
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-// File: @openzeppelin/contracts/math/Math.sol
-
 import '@openzeppelin/contracts/math/Math.sol';
-
-// File: @openzeppelin/contracts/math/SafeMath.sol
-
 import '@openzeppelin/contracts/math/SafeMath.sol';
-
-// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-
-// File: @openzeppelin/contracts/utils/Address.sol
-
+import '../lib/IBEP20.sol';
 import '@openzeppelin/contracts/utils/Address.sol';
-
-// File: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
-
-import '@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-
-// File: contracts/IRewardDistributionRecipient.sol
-
+import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
+import '../token/LPTokenWrapper.sol';
 
-contract DAIWrapper {
-    using SafeMath for uint256;
-    using SafeERC20 for IERC20;
+contract BUSDFACLPTokenSharePool is
+    LPTokenWrapper,
+    IRewardDistributionRecipient
+{
+    IBEP20 public fatShare;
+    uint256 public constant DURATION = 30 days;
 
-    IERC20 public dai;
-
-    uint256 private _totalSupply;
-    mapping(address => uint256) private _balances;
-
-    function totalSupply() public view returns (uint256) {
-        return _totalSupply;
-    }
-
-    function balanceOf(address account) public view returns (uint256) {
-        return _balances[account];
-    }
-
-    function stake(uint256 amount) public virtual {
-        _totalSupply = _totalSupply.add(amount);
-        _balances[msg.sender] = _balances[msg.sender].add(amount);
-        dai.safeTransferFrom(msg.sender, address(this), amount);
-    }
-
-    function withdraw(uint256 amount) public virtual {
-        _totalSupply = _totalSupply.sub(amount);
-        _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        dai.safeTransfer(msg.sender, amount);
-    }
-}
-
-contract FACDAIPool is DAIWrapper, IRewardDistributionRecipient {
-    IERC20 public fatCash;
-    uint256 public DURATION = 5 days;
-
-    uint256 public starttime;
+    uint256 public initreward = 750000 * 10**18; // 750,000 Shares
+    uint256 public starttime; // starttime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
     uint256 public rewardPerTokenStored;
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
-    mapping(address => uint256) public deposits;
 
     event RewardAdded(uint256 reward);
     event Staked(address indexed user, uint256 amount);
@@ -111,18 +68,13 @@ contract FACDAIPool is DAIWrapper, IRewardDistributionRecipient {
     event RewardPaid(address indexed user, uint256 reward);
 
     constructor(
-        address fatCash_,
-        address dai_,
+        address fatShare_,
+        address lptoken_,
         uint256 starttime_
     ) public {
-        fatCash = IERC20(fatCash_);
-        dai = IERC20(dai_);
+        fatShare = IBEP20(fatShare_);
+        lpt = IBEP20(lptoken_);
         starttime = starttime_;
-    }
-
-    modifier checkStart() {
-        require(block.timestamp >= starttime, 'FACDAIPool: not start');
-        _;
     }
 
     modifier updateReward(address account) {
@@ -166,15 +118,10 @@ contract FACDAIPool is DAIWrapper, IRewardDistributionRecipient {
         public
         override
         updateReward(msg.sender)
+        checkhalve
         checkStart
     {
-        require(amount > 0, 'FACDAIPool: Cannot stake 0');
-        uint256 newDeposit = deposits[msg.sender].add(amount);
-        require(
-            newDeposit <= 20000e18,
-            'FACDAIPool: deposit amount exceeds maximum 20000'
-        );
-        deposits[msg.sender] = newDeposit;
+        require(amount > 0, 'BUSDFACLPTokenSharePool: Cannot stake 0');
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
@@ -183,10 +130,10 @@ contract FACDAIPool is DAIWrapper, IRewardDistributionRecipient {
         public
         override
         updateReward(msg.sender)
+        checkhalve
         checkStart
     {
-        require(amount > 0, 'FACDAIPool: Cannot withdraw 0');
-        deposits[msg.sender] = deposits[msg.sender].sub(amount);
+        require(amount > 0, 'BUSDFACLPTokenSharePool: Cannot withdraw 0');
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
@@ -196,13 +143,29 @@ contract FACDAIPool is DAIWrapper, IRewardDistributionRecipient {
         getReward();
     }
 
-    function getReward() public updateReward(msg.sender) checkStart {
+    function getReward() public updateReward(msg.sender) checkhalve checkStart {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            fatCash.safeTransfer(msg.sender, reward);
+            fatShare.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
+    }
+
+    modifier checkhalve() {
+        if (block.timestamp >= periodFinish) {
+            initreward = initreward.mul(75).div(100); // decreases 25% after every 30 days.
+
+            rewardRate = initreward.div(DURATION);
+            periodFinish = block.timestamp.add(DURATION);
+            emit RewardAdded(initreward);
+        }
+        _;
+    }
+
+    modifier checkStart() {
+        require(block.timestamp >= starttime, 'BUSDFACLPTokenSharePool: not start');
+        _;
     }
 
     function notifyRewardAmount(uint256 reward)
@@ -223,7 +186,7 @@ contract FACDAIPool is DAIWrapper, IRewardDistributionRecipient {
             periodFinish = block.timestamp.add(DURATION);
             emit RewardAdded(reward);
         } else {
-            rewardRate = reward.div(DURATION);
+            rewardRate = initreward.div(DURATION);
             lastUpdateTime = starttime;
             periodFinish = starttime.add(DURATION);
             emit RewardAdded(reward);

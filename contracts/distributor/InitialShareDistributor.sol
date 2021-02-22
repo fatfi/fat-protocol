@@ -1,7 +1,7 @@
 pragma solidity ^0.6.0;
 
 import '@openzeppelin/contracts/math/SafeMath.sol';
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
+import '../lib/IBEP20.sol';
 
 import '../interfaces/IDistributor.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
@@ -13,24 +13,24 @@ contract InitialShareDistributor is IDistributor {
 
     bool public once = true;
 
-    IERC20 public share;
-    IRewardDistributionRecipient public usdtfacLPPool;
-    uint256 public usdtfacInitialBalance;
-    IRewardDistributionRecipient public usdtfasLPPool;
-    uint256 public usdtfasInitialBalance;
+    IBEP20 public share;
+    IRewardDistributionRecipient public busdFacLPPool;
+    uint256 public busdFacInitialBalance;
+    IRewardDistributionRecipient public busdFasLPPool;
+    uint256 public busdFasInitialBalance;
 
     constructor(
-        IERC20 _share,
-        IRewardDistributionRecipient _usdtfacLPPool,
-        uint256 _usdtfacInitialBalance,
-        IRewardDistributionRecipient _usdtfasLPPool,
-        uint256 _usdtfasInitialBalance
+        IBEP20 _share,
+        IRewardDistributionRecipient _busdFacLPPool,
+        uint256 _busdFacInitialBalance,
+        IRewardDistributionRecipient _busdFasLPPool,
+        uint256 _busdFasInitialBalance
     ) public {
         share = _share;
-        usdtfacLPPool = _usdtfacLPPool;
-        usdtfacInitialBalance = _usdtfacInitialBalance;
-        usdtfasLPPool = _usdtfasLPPool;
-        usdtfasInitialBalance = _usdtfasInitialBalance;
+        busdFacLPPool = _busdFacLPPool;
+        busdFacInitialBalance = _busdFacInitialBalance;
+        busdFasLPPool = _busdFasLPPool;
+        busdFasInitialBalance = _busdFasInitialBalance;
     }
 
     function distribute() public override {
@@ -39,13 +39,13 @@ contract InitialShareDistributor is IDistributor {
             'InitialShareDistributor: you cannot run this function twice'
         );
 
-        share.transfer(address(usdtfacLPPool), usdtfacInitialBalance);
-        usdtfacLPPool.notifyRewardAmount(usdtfacInitialBalance);
-        emit Distributed(address(usdtfacLPPool), usdtfacInitialBalance);
+        share.transfer(address(busdFacLPPool), busdFacInitialBalance);
+        busdFacLPPool.notifyRewardAmount(busdFacInitialBalance);
+        emit Distributed(address(busdFacLPPool), busdFacInitialBalance);
 
-        share.transfer(address(usdtfasLPPool), usdtfasInitialBalance);
-        usdtfasLPPool.notifyRewardAmount(usdtfasInitialBalance);
-        emit Distributed(address(usdtfasLPPool), usdtfasInitialBalance);
+        share.transfer(address(busdFasLPPool), busdFasInitialBalance);
+        busdFasLPPool.notifyRewardAmount(busdFasInitialBalance);
+        emit Distributed(address(busdFasLPPool), busdFasInitialBalance);
 
         once = false;
     }

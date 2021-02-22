@@ -1,21 +1,19 @@
 # FATFI.IO
 
 FATFI has some unique features over other algorithmic stablecoins.
-## Contract Addresses
-| Contract  | Address |
-| ------------- | ------------- |
-| Token ($FAT) | [0xxxx](https://etherscan.io/token/0xxx) |
-| Cash ($FAC) | [0xxxx](https://etherscan.io/token/0xxx) |
-| Share ($FAS) | [0xxxx](https://xxx) |
-| Bond ($FAB) | [0xxxx](https://xxx) |
-| Treasury | [0xxxx](https://xxx) |
-| Boardroom | [0xxxx](https://xxx) |
-| Stables Farming Pool | [0xxxx](https://xxx#code) |
-| Timelock 24h | [0xxxx](https://etherscan.io/token/0xxx) |
 
-## DiffChecker
-* [Diff checker: BasisCash and Fatfi](https://www.diffchecker.com/KVlWQm0A)
+### Pool
 
++ BUSDFACLPTokenSharePool: [0xxxx](https://xxx)
++ BUSDFASLPTokenSharePool: [0xxxx](https://xxx)
++ FACBUSDPool: [0xxxx](https://xxx)
+
+
+
+### Monetary Policy
++ Treasury: [0xxxx](https://xxx)
++ Boardroom: [0xxxx](https://xxx)
++ Oracle: [0xxxx](https://xxx)
 
 ## The Fatfi Protocol
 

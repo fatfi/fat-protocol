@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: FATCASHRewards.sol
+* Synthetix: FACBUSDPool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -38,63 +38,45 @@ pragma solidity ^0.6.0;
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-// File: @openzeppelin/contracts/math/Math.sol
-
 import '@openzeppelin/contracts/math/Math.sol';
-
-// File: @openzeppelin/contracts/math/SafeMath.sol
-
 import '@openzeppelin/contracts/math/SafeMath.sol';
-
-// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-
-// File: @openzeppelin/contracts/utils/Address.sol
-
+import '../lib/IBEP20.sol';
 import '@openzeppelin/contracts/utils/Address.sol';
-
-// File: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
-
-import '@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-
-// File: contracts/IRewardDistributionRecipient.sol
-
+import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
 
 contract BUSDWrapper {
     using SafeMath for uint256;
-    using SafeERC20 for IERC20;
+    using SafeBEP20 for IBEP20;
 
-    IERC20 public BUSD;
+    IBEP20 public busd;
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
 
-    function totalSupply() public view returns (uint256) {
+    function totalSupply() public virtual view returns (uint256) {
         return _totalSupply;
     }
 
-    function balanceOf(address account) public view returns (uint256) {
+    function balanceOf(address account) public virtual view returns (uint256) {
         return _balances[account];
     }
 
     function stake(uint256 amount) public virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
-        BUSD.safeTransferFrom(msg.sender, address(this), amount);
+        busd.safeTransferFrom(msg.sender, address(this), amount);
     }
 
     function withdraw(uint256 amount) public virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        BUSD.safeTransfer(msg.sender, amount);
+        busd.safeTransfer(msg.sender, amount);
     }
 }
 
 contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
-    IERC20 public fatCash;
-    // BUSD pool mining cycle is 5 days
+    IBEP20 public fatCash;
     uint256 public DURATION = 5 days;
 
     uint256 public starttime;
@@ -105,7 +87,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
     mapping(address => uint256) public deposits;
-    // Trigger event: reward increase mortgage withdrawal reward issuance
+
     event RewardAdded(uint256 reward);
     event Staked(address indexed user, uint256 amount);
     event Withdrawn(address indexed user, uint256 amount);
@@ -116,16 +98,16 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
         address busd_,
         uint256 starttime_
     ) public {
-        fatCash = IERC20(fatCash_);
-        BUSD = IERC20(busd_);
+        fatCash = IBEP20(fatCash_);
+        busd = IBEP20(busd_);
         starttime = starttime_;
     }
-    // Modifier: meet the start time
+
     modifier checkStart() {
         require(block.timestamp >= starttime, 'FACBUSDPool: not start');
         _;
     }
-    // Modifier: Update account reward
+
     modifier updateReward(address account) {
         rewardPerTokenStored = rewardPerToken();
         lastUpdateTime = lastTimeRewardApplicable();
@@ -161,9 +143,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
                 .div(1e18)
                 .add(rewards[account]);
     }
-    /**
-      * @notice Mortgage BUSD into the pool
-      */
+
     // stake visibility is public as overriding LPTokenWrapper's stake() function
     function stake(uint256 amount)
         public
@@ -173,14 +153,12 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
     {
         require(amount > 0, 'FACBUSDPool: Cannot stake 0');
         uint256 newDeposit = deposits[msg.sender].add(amount);
-        // Limit the total amount of mortgage per account not to exceed 20000 BUSD
         require(
             newDeposit <= 20000e18,
             'FACBUSDPool: deposit amount exceeds maximum 20000'
         );
         deposits[msg.sender] = newDeposit;
         super.stake(amount);
-        // Trigger mortgage event
         emit Staked(msg.sender, amount);
     }
 
@@ -195,9 +173,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
-    /**
-     *@notice Take BUSD from the pool and take out the reward
-     */
+
     function exit() external {
         withdraw(balanceOf(msg.sender));
         getReward();
@@ -207,9 +183,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            // The mining reward is FAC, sent to the contract caller
             fatCash.safeTransfer(msg.sender, reward);
-            // Trigger sending reward event
             emit RewardPaid(msg.sender, reward);
         }
     }

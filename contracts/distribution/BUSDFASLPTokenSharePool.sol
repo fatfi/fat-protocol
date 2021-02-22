@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: FATCASHRewards.sol
+* Synthetix: BUSDFASLPTokenSharePool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -38,63 +38,20 @@ pragma solidity ^0.6.0;
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 */
 
-// File: @openzeppelin/contracts/math/Math.sol
-
 import '@openzeppelin/contracts/math/Math.sol';
-
-// File: @openzeppelin/contracts/math/SafeMath.sol
-
 import '@openzeppelin/contracts/math/SafeMath.sol';
-
-// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
-
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-
-// File: @openzeppelin/contracts/utils/Address.sol
-
+import '../lib/IBEP20.sol';
 import '@openzeppelin/contracts/utils/Address.sol';
-
-// File: @openzeppelin/contracts/token/ERC20/SafeERC20.sol
-
-import '@openzeppelin/contracts/token/ERC20/SafeERC20.sol';
-
-// File: contracts/IRewardDistributionRecipient.sol
-
+import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
+import '../token/LPTokenWrapper.sol';
 
-contract CRVWrapper {
-    using SafeMath for uint256;
-    using SafeERC20 for IERC20;
-
-    IERC20 public crv;
-
-    uint256 private _totalSupply;
-    mapping(address => uint256) private _balances;
-
-    function totalSupply() public virtual view returns (uint256) {
-        return _totalSupply;
-    }
-
-    function balanceOf(address account) public virtual view returns (uint256) {
-        return _balances[account];
-    }
-
-    function stake(uint256 amount) public virtual {
-        _totalSupply = _totalSupply.add(amount);
-        _balances[msg.sender] = _balances[msg.sender].add(amount);
-        crv.safeTransferFrom(msg.sender, address(this), amount);
-    }
-
-    function withdraw(uint256 amount) public virtual {
-        _totalSupply = _totalSupply.sub(amount);
-        _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        crv.safeTransfer(msg.sender, amount);
-    }
-}
-
-contract FACCRVPool is CRVWrapper, IRewardDistributionRecipient {
-    IERC20 public fatCash;
-    uint256 public DURATION = 5 days;
+contract BUSDFASLPTokenSharePool is
+    LPTokenWrapper,
+    IRewardDistributionRecipient
+{
+    IBEP20 public fatShare;
+    uint256 public DURATION = 365 days;
 
     uint256 public starttime;
     uint256 public periodFinish = 0;
@@ -103,7 +60,6 @@ contract FACCRVPool is CRVWrapper, IRewardDistributionRecipient {
     uint256 public rewardPerTokenStored;
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
-    mapping(address => uint256) public deposits;
 
     event RewardAdded(uint256 reward);
     event Staked(address indexed user, uint256 amount);
@@ -111,17 +67,20 @@ contract FACCRVPool is CRVWrapper, IRewardDistributionRecipient {
     event RewardPaid(address indexed user, uint256 reward);
 
     constructor(
-        address fatCash_,
-        address crv_,
+        address fatShare_,
+        address lptoken_,
         uint256 starttime_
     ) public {
-        fatCash = IERC20(fatCash_);
-        crv = IERC20(crv_);
+        fatShare = IBEP20(fatShare_);
+        lpt = IBEP20(lptoken_);
         starttime = starttime_;
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'FACCRVPool: not start');
+        require(
+            block.timestamp >= starttime,
+            'BUSDFASLPTokenSharePool: not start'
+        );
         _;
     }
 
@@ -168,13 +127,7 @@ contract FACCRVPool is CRVWrapper, IRewardDistributionRecipient {
         updateReward(msg.sender)
         checkStart
     {
-        require(amount > 0, 'FACCRVPool: Cannot stake 0');
-        uint256 newDeposit = deposits[msg.sender].add(amount);
-        require(
-            newDeposit <= 20000e18,
-            'FACCRVPool: deposit amount exceeds maximum 20000'
-        );
-        deposits[msg.sender] = newDeposit;
+        require(amount > 0, 'BUSDFASLPTokenSharePool: Cannot stake 0');
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
@@ -185,8 +138,7 @@ contract FACCRVPool is CRVWrapper, IRewardDistributionRecipient {
         updateReward(msg.sender)
         checkStart
     {
-        require(amount > 0, 'FACCRVPool: Cannot withdraw 0');
-        deposits[msg.sender] = deposits[msg.sender].sub(amount);
+        require(amount > 0, 'BUSDFASLPTokenSharePool: Cannot withdraw 0');
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
@@ -200,7 +152,7 @@ contract FACCRVPool is CRVWrapper, IRewardDistributionRecipient {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            fatCash.safeTransfer(msg.sender, reward);
+            fatShare.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
     }

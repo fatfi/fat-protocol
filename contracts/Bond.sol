@@ -1,13 +1,13 @@
 pragma solidity ^0.6.0;
 
 import './owner/Operator.sol';
-import '@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol';
+import './lib/BEP20Burnable.sol';
 
-contract Bond is ERC20Burnable, Ownable, Operator {
+contract Bond is BEP20Burnable, Ownable, Operator {
     /**
-     * @notice Constructs the Fat Bond ERC-20 contract.
+     * @notice Constructs the Fat Bond BEP-20 contract.
      */
-    constructor() public ERC20('FAB', 'FAB') {}
+    constructor() public BEP20('FAB', 'FAB', 18) {}
 
     /**
      * @notice Operator mints Fat bonds to a recipient

@@ -1,10 +1,10 @@
 pragma solidity ^0.6.0;
 
 import './owner/Operator.sol';
-import '@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol';
+import './lib/BEP20Burnable.sol';
 
-contract Share is ERC20Burnable, Operator {
-    constructor() public ERC20('FAS', 'FAS') {
+contract Share is BEP20Burnable, Operator {
+    constructor() public BEP20('FAS', 'FAS', 18) {
         // Mints 1 Farmbria Share to contract creator for initial Uniswap oracle deployment.
         // Will be burned after oracle deployment
         _mint(msg.sender, 1 * 10**18);
