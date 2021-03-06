@@ -1,6 +1,8 @@
 pragma solidity ^0.6.0;
 
 import '../distribution/FACBUSDPool.sol';
+import '../distribution/FACDAIPool.sol';
+import '../distribution/FACBUSDTPool.sol';
 import '../interfaces/IDistributor.sol';
 
 contract InitialCashDistributor is IDistributor {

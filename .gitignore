@@ -9,4 +9,5 @@ truffle-config.js
 ropsten.deployment.log
 test/
 *.log
+migrations
 deployments
