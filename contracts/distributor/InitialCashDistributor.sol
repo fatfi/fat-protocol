@@ -1,5 +1,22 @@
 pragma solidity ^0.6.0;
 
+// K-Rewards Pools - Communities
+import '../distribution/FACREEFPool.sol';
+import '../distribution/FACSFPPool.sol';
+import '../distribution/FACTWTPool.sol';
+import '../distribution/FACLINKPool.sol';
+import '../distribution/FACDOGEPool.sol';
+import '../distribution/FACADAPool.sol';
+import '../distribution/FACDOTPool.sol';
+import '../distribution/FACSXPPool.sol';
+import '../distribution/FACXRPPool.sol';
+import '../distribution/FACWBNBPool.sol';
+import '../distribution/FACETHPool.sol';
+import '../distribution/FACBURGERPool.sol';
+import '../distribution/FACBAKEPool.sol';
+import '../distribution/FACCAKEPool.sol';
+// K-Rewards Pools - Stablecoins
+import '../distribution/FACUSDCPool.sol';
 import '../distribution/FACBUSDPool.sol';
 import '../distribution/FACDAIPool.sol';
 import '../distribution/FACBUSDTPool.sol';
@@ -20,6 +37,7 @@ contract InitialCashDistributor is IDistributor {
         IBEP20 _cash,
         IRewardDistributionRecipient[] memory _pools,
         uint256 _totalInitialBalance
+
     ) public {
         require(_pools.length != 0, 'a list of FAC pools are required');
         cash = _cash;

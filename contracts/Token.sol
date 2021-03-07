@@ -8,7 +8,11 @@ contract Token is BEP20Burnable, Ownable, Operator {
     /**
      * @notice Constructs the Fat Token BEP-20 contract.
      */
-    constructor() public BEP20('FAT', 'FAT', 18) {}
+    constructor() public BEP20('FAT', 'FAT', 18) {
+        // Mints 1 Fat Cash to contract creator for initial Uniswap oracle deployment.
+        // Will be burned after oracle deployment
+        _mint(msg.sender, 1 * 10**18);
+    }
 
     /**
      * @notice Operator mints Fat bonds to a recipient

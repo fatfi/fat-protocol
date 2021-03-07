@@ -11,3 +11,4 @@ test/
 *.log
 migrations
 deployments
+build

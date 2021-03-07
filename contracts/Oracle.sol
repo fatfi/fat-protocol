@@ -6,17 +6,24 @@ import './lib/Babylonian.sol';
 import './lib/FixedPoint.sol';
 import './lib/UniswapV2Library.sol';
 import './lib/UniswapV2OracleLibrary.sol';
-import './utils/Epoch.sol';
 import './interfaces/IUniswapV2Pair.sol';
 import './interfaces/IUniswapV2Factory.sol';
 
 // fixed window oracle that recomputes the average price for the entire period once every period
 // note that the price average is only guaranteed to be over at least 1 period, but may be over a longer period
-contract Oracle is Epoch {
+contract Oracle {
     using FixedPoint for *;
     using SafeMath for uint256;
 
+    /* ========= CONSTANT VARIABLES ======== */
+
+    uint256 public constant PERIOD = 10 minutes ;// just for test 1 hours;
+
     /* ========== STATE VARIABLES ========== */
+
+    // epoch
+    uint256 public startTime;
+    uint256 public epoch = 0;
 
     // uniswap
     address public token0;
@@ -36,21 +43,36 @@ contract Oracle is Epoch {
         address _factory,
         address _tokenA,
         address _tokenB,
-        uint256 _period,
         uint256 _startTime
-    ) public Epoch(_period, _startTime, 0) {
-        IUniswapV2Pair _pair = IUniswapV2Pair(
-            UniswapV2Library.pairFor(_factory, _tokenA, _tokenB)
-        );
-        pair = _pair;
-        token0 = _pair.token0();
-        token1 = _pair.token1();
-        price0CumulativeLast = _pair.price0CumulativeLast(); // fetch the current accumulated price value (1 / 0)
-        price1CumulativeLast = _pair.price1CumulativeLast(); // fetch the current accumulated price value (0 / 1)
+    ) public {
+        address _pair = IUniswapV2Factory(_factory).getPair(_tokenA, _tokenB);
+        pair = IUniswapV2Pair(_pair);
+        token0 = pair.token0();
+        token1 = pair.token1();
+        price0CumulativeLast = pair.price0CumulativeLast(); // fetch the current accumulated price value (1 / 0)
+        price1CumulativeLast = pair.price1CumulativeLast(); // fetch the current accumulated price value (0 / 1)
         uint112 reserve0;
         uint112 reserve1;
-        (reserve0, reserve1, blockTimestampLast) = _pair.getReserves();
+        (reserve0, reserve1, blockTimestampLast) = pair.getReserves();
         require(reserve0 != 0 && reserve1 != 0, 'Oracle: NO_RESERVES'); // ensure that there's liquidity in the pair
+
+        startTime = _startTime;
+    }
+
+    /* =================== Modifier =================== */
+
+    modifier checkEpoch {
+        require(now >= nextEpochPoint(), 'Oracle: not opened yet');
+
+        _;
+
+        epoch = epoch.add(1);
+    }
+
+    /* ========== VIEW FUNCTIONS ========== */
+
+    function nextEpochPoint() public view returns (uint256) {
+        return startTime.add(epoch.mul(PERIOD));
     }
 
     /* ========== MUTABLE FUNCTIONS ========== */
@@ -58,9 +80,9 @@ contract Oracle is Epoch {
     /** @dev Updates 1-day EMA price from Uniswap.  */
     function update() external checkEpoch {
         (
-            uint256 price0Cumulative,
-            uint256 price1Cumulative,
-            uint32 blockTimestamp
+        uint256 price0Cumulative,
+        uint256 price1Cumulative,
+        uint32 blockTimestamp
         ) = UniswapV2OracleLibrary.currentCumulativePrices(address(pair));
         uint32 timeElapsed = blockTimestamp - blockTimestampLast; // overflow is desired
 
@@ -87,9 +109,9 @@ contract Oracle is Epoch {
 
     // note this will always return 0 before update has been called successfully for the first time.
     function consult(address token, uint256 amountIn)
-        external
-        view
-        returns (uint144 amountOut)
+    external
+    view
+    returns (uint144 amountOut)
     {
         if (token == token0) {
             amountOut = price0Average.mul(amountIn).decode144();
@@ -103,8 +125,8 @@ contract Oracle is Epoch {
         address factory,
         address tokenA,
         address tokenB
-    ) external pure returns (address lpt) {
-        return UniswapV2Library.pairFor(factory, tokenA, tokenB);
+    ) external view returns (address lpt) {
+        return IUniswapV2Factory(factory).getPair(tokenA, tokenB);
     }
 
     event Updated(uint256 price0CumulativeLast, uint256 price1CumulativeLast);

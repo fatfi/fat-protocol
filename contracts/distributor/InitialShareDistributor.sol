@@ -14,6 +14,9 @@ contract InitialShareDistributor is IDistributor {
     bool public once = true;
 
     IBEP20 public share;
+
+    IRewardDistributionRecipient public busdFatLPPool;
+    uint256 public busdFatInitialBalance;
     IRewardDistributionRecipient public busdFacLPPool;
     uint256 public busdFacInitialBalance;
     IRewardDistributionRecipient public busdFasLPPool;
@@ -21,12 +24,16 @@ contract InitialShareDistributor is IDistributor {
 
     constructor(
         IBEP20 _share,
+        IRewardDistributionRecipient _busdFatLPPool,
+        uint256 _busdFatInitialBalance,
         IRewardDistributionRecipient _busdFacLPPool,
         uint256 _busdFacInitialBalance,
         IRewardDistributionRecipient _busdFasLPPool,
         uint256 _busdFasInitialBalance
     ) public {
         share = _share;
+        busdFatLPPool = _busdFatLPPool;
+        busdFatInitialBalance = _busdFatInitialBalance;
         busdFacLPPool = _busdFacLPPool;
         busdFacInitialBalance = _busdFacInitialBalance;
         busdFasLPPool = _busdFasLPPool;
@@ -38,6 +45,10 @@ contract InitialShareDistributor is IDistributor {
             once,
             'InitialShareDistributor: you cannot run this function twice'
         );
+
+        share.transfer(address(busdFatLPPool), busdFatInitialBalance);
+        busdFatLPPool.notifyRewardAmount(busdFatInitialBalance);
+        emit Distributed(address(busdFatLPPool), busdFatInitialBalance);
 
         share.transfer(address(busdFacLPPool), busdFacInitialBalance);
         busdFacLPPool.notifyRewardAmount(busdFacInitialBalance);
