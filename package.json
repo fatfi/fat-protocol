@@ -8,9 +8,8 @@
     "flatten": "truffle-flattener",
     "console:dev": "truffle console --network dev",
     "deploy:dev": "truffle migrate --reset --network dev",
-    "deploy:ropsten": "truffle migrate --network ropsten",
-    "deploy:rinkeby": "truffle migrate --network rinkeby",
-    "deploy:mainnet": "truffle migrate --network mainnet"
+    "deploy:testnet": "truffle migrate --network testnet",
+    "deploy:mainnet": "truffle migrate --network bsc"
   },
   "devDependencies": {
     "@ethersproject/address": "^5.0.0-beta",

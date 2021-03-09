@@ -3,7 +3,7 @@ pragma solidity ^0.6.0;
 import './owner/Operator.sol';
 import './lib/BEP20Burnable.sol';
 
-contract Bond is BEP20Burnable, Ownable, Operator {
+contract Bond is BEP20Burnable, Operator {
     /**
      * @notice Constructs the Fat Bond BEP-20 contract.
      */

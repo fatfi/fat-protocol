@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: BUSDFATLPTokenSharePool.sol
+* Synthetix: BUSDFACLPTokenSharePool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -50,10 +50,11 @@ contract BUSDFATLPTokenSharePool is
     LPTokenWrapper,
     IRewardDistributionRecipient
 {
-    IBEP20 public fatToken;
-    uint256 public DURATION = 365 days;
+    IBEP20 public fatShare;
+    uint256 public constant DURATION = 30 days;
 
-    uint256 public starttime;
+    uint256 public initreward = 350000 * 10**18; // 350,000 Shares
+    uint256 public starttime; // starttime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -67,21 +68,13 @@ contract BUSDFATLPTokenSharePool is
     event RewardPaid(address indexed user, uint256 reward);
 
     constructor(
-        address fatToken_,
+        address fatShare_,
         address lptoken_,
         uint256 starttime_
     ) public {
-        fatToken = IBEP20(fatToken_);
+        fatShare = IBEP20(fatShare_);
         lpt = IBEP20(lptoken_);
         starttime = starttime_;
-    }
-
-    modifier checkStart() {
-        require(
-            block.timestamp >= starttime,
-            'BUSDFATLPTokenSharePool: not start'
-        );
-        _;
     }
 
     modifier updateReward(address account) {
@@ -125,9 +118,10 @@ contract BUSDFATLPTokenSharePool is
         public
         override
         updateReward(msg.sender)
+        checkhalve
         checkStart
     {
-        require(amount > 0, 'BUSDFATLPTokenSharePool: Cannot stake 0');
+        require(amount > 0, 'BUSDFACLPTokenSharePool: Cannot stake 0');
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
@@ -136,9 +130,10 @@ contract BUSDFATLPTokenSharePool is
         public
         override
         updateReward(msg.sender)
+        checkhalve
         checkStart
     {
-        require(amount > 0, 'BUSDFATLPTokenSharePool: Cannot withdraw 0');
+        require(amount > 0, 'BUSDFACLPTokenSharePool: Cannot withdraw 0');
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
@@ -148,13 +143,29 @@ contract BUSDFATLPTokenSharePool is
         getReward();
     }
 
-    function getReward() public updateReward(msg.sender) checkStart {
+    function getReward() public updateReward(msg.sender) checkhalve checkStart {
         uint256 reward = earned(msg.sender);
         if (reward > 0) {
             rewards[msg.sender] = 0;
-            fatToken.safeTransfer(msg.sender, reward);
+            fatShare.safeTransfer(msg.sender, reward);
             emit RewardPaid(msg.sender, reward);
         }
+    }
+
+    modifier checkhalve() {
+        if (block.timestamp >= periodFinish) {
+            initreward = initreward.mul(75).div(100); // decreases 25% after every 30 days.
+
+            rewardRate = initreward.div(DURATION);
+            periodFinish = block.timestamp.add(DURATION);
+            emit RewardAdded(initreward);
+        }
+        _;
+    }
+
+    modifier checkStart() {
+        require(block.timestamp >= starttime, 'BUSDFACLPTokenSharePool: not start');
+        _;
     }
 
     function notifyRewardAmount(uint256 reward)
@@ -175,7 +186,7 @@ contract BUSDFATLPTokenSharePool is
             periodFinish = block.timestamp.add(DURATION);
             emit RewardAdded(reward);
         } else {
-            rewardRate = reward.div(DURATION);
+            rewardRate = initreward.div(DURATION);
             lastUpdateTime = starttime;
             periodFinish = starttime.add(DURATION);
             emit RewardAdded(reward);
