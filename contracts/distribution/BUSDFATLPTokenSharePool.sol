@@ -53,7 +53,7 @@ contract BUSDFATLPTokenSharePool is
     IBEP20 public fatShare;
     uint256 public constant DURATION = 30 days;
 
-    uint256 public initreward = 350000 * 10**18; // 350,000 Shares
+    uint256 public initreward = 375000 * 10**18; // 375,000 Shares
     uint256 public starttime; // starttime TBD
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
