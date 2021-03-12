@@ -46,10 +46,8 @@ import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
 import '../token/LPTokenWrapper.sol';
 
-contract FACBUSDFATLPTokenPool is
-    LPTokenWrapper,
-    IRewardDistributionRecipient
-{
+contract FACBUSDFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
+
     IBEP20 public fatCash;
     uint256 public DURATION = 5 days;
 
@@ -60,6 +58,7 @@ contract FACBUSDFATLPTokenPool is
     uint256 public rewardPerTokenStored;
     mapping(address => uint256) public userRewardPerTokenPaid;
     mapping(address => uint256) public rewards;
+    mapping(address => uint256) public deposits;
 
     event RewardAdded(uint256 reward);
     event Staked(address indexed user, uint256 amount);
@@ -77,10 +76,7 @@ contract FACBUSDFATLPTokenPool is
     }
 
     modifier checkStart() {
-        require(
-            block.timestamp >= starttime,
-            'FACBUSDFATLPTokenPool: not start'
-        );
+        require(block.timestamp >= starttime, 'FACBUSDFATLPTokenPool: not start');
         _;
     }
 
@@ -103,42 +99,45 @@ contract FACBUSDFATLPTokenPool is
             return rewardPerTokenStored;
         }
         return
-            rewardPerTokenStored.add(
-                lastTimeRewardApplicable()
-                    .sub(lastUpdateTime)
-                    .mul(rewardRate)
-                    .mul(1e18)
-                    .div(totalSupply())
-            );
+        rewardPerTokenStored.add(
+            lastTimeRewardApplicable()
+            .sub(lastUpdateTime)
+            .mul(rewardRate)
+            .mul(1e18)
+            .div(totalSupply())
+        );
     }
 
     function earned(address account) public view returns (uint256) {
         return
-            balanceOf(account)
-                .mul(rewardPerToken().sub(userRewardPerTokenPaid[account]))
-                .div(1e18)
-                .add(rewards[account]);
+        balanceOf(account)
+        .mul(rewardPerToken().sub(userRewardPerTokenPaid[account]))
+        .div(1e18)
+        .add(rewards[account]);
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function
     function stake(uint256 amount)
-        public
-        override
-        updateReward(msg.sender)
-        checkStart
+    public
+    override
+    updateReward(msg.sender)
+    checkStart
     {
         require(amount > 0, 'FACBUSDFATLPTokenPool: Cannot stake 0');
+        uint256 newDeposit = deposits[msg.sender].add(amount);
+        deposits[msg.sender] = newDeposit;
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
 
     function withdraw(uint256 amount)
-        public
-        override
-        updateReward(msg.sender)
-        checkStart
+    public
+    override
+    updateReward(msg.sender)
+    checkStart
     {
         require(amount > 0, 'FACBUSDFATLPTokenPool: Cannot withdraw 0');
+        deposits[msg.sender] = deposits[msg.sender].sub(amount);
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
@@ -158,9 +157,9 @@ contract FACBUSDFATLPTokenPool is
     }
 
     function notifyRewardAmount(uint256 reward)
-        external
-        override
-        updateReward(address(0))
+    external
+    override
+    updateReward(address(0))
     {
         if (block.timestamp > starttime) {
             if (block.timestamp >= periodFinish) {

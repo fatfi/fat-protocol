@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: BUSDFACLPTokenSharePool.sol
+* Synthetix: BUSDFATLPTokenSharePool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -121,7 +121,7 @@ contract BUSDFATLPTokenSharePool is
         checkhalve
         checkStart
     {
-        require(amount > 0, 'BUSDFACLPTokenSharePool: Cannot stake 0');
+        require(amount > 0, 'BUSDFATLPTokenSharePool: Cannot stake 0');
         super.stake(amount);
         emit Staked(msg.sender, amount);
     }
@@ -133,7 +133,7 @@ contract BUSDFATLPTokenSharePool is
         checkhalve
         checkStart
     {
-        require(amount > 0, 'BUSDFACLPTokenSharePool: Cannot withdraw 0');
+        require(amount > 0, 'BUSDFATLPTokenSharePool: Cannot withdraw 0');
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
     }
@@ -164,7 +164,7 @@ contract BUSDFATLPTokenSharePool is
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'BUSDFACLPTokenSharePool: not start');
+        require(block.timestamp >= starttime, 'BUSDFATLPTokenSharePool: not start');
         _;
     }
 
