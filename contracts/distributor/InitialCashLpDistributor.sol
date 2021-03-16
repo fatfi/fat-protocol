@@ -16,17 +16,17 @@ contract InitialCashLpDistributor is IDistributor {
 
     IBEP20 public cash;
 
-    IRewardDistributionRecipient public busdFatLPPool;
-    uint256 public busdFatInitialBalance;
+    IRewardDistributionRecipient public bnbFatLPPool;
+    uint256 public bnbFatInitialBalance;
 
     constructor (
         IBEP20 _cash,
-        IRewardDistributionRecipient _busdFatLPPool,
-        uint256 _busdFatInitialBalance
+        IRewardDistributionRecipient _bnbFatLPPool,
+        uint256 _bnbFatInitialBalance
     ) public {
         cash = _cash;
-        busdFatLPPool = _busdFatLPPool;
-        busdFatInitialBalance = _busdFatInitialBalance;
+        bnbFatLPPool = _bnbFatLPPool;
+        bnbFatInitialBalance = _bnbFatInitialBalance;
     }
 
     function distribute() public override {
@@ -34,9 +34,9 @@ contract InitialCashLpDistributor is IDistributor {
             once,
             'InitialCashLpDistributor: you cannot run this function twice'
         );
-        cash.transfer(address(busdFatLPPool), busdFatInitialBalance);
-        busdFatLPPool.notifyRewardAmount(busdFatInitialBalance);
-        emit Distributed(address(busdFatLPPool), busdFatInitialBalance);
+        cash.transfer(address(bnbFatLPPool), bnbFatInitialBalance);
+        bnbFatLPPool.notifyRewardAmount(bnbFatInitialBalance);
+        emit Distributed(address(bnbFatLPPool), bnbFatInitialBalance);
 
         once = false;
     }

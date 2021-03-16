@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: FACBUSDFATLPTokenPool.sol
+* Synthetix: FACWBNBFATLPTokenPool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -46,7 +46,7 @@ import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
 import '../token/LPTokenWrapper.sol';
 
-contract FACBUSDFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
+contract FACWBNBFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
 
     IBEP20 public fatCash;
     uint256 public DURATION = 5 days;
@@ -76,7 +76,7 @@ contract FACBUSDFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'FACBUSDFATLPTokenPool: not start');
+        require(block.timestamp >= starttime, 'FACWBNBFATLPTokenPool: not start');
         _;
     }
 
@@ -123,7 +123,7 @@ contract FACBUSDFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
     updateReward(msg.sender)
     checkStart
     {
-        require(amount > 0, 'FACBUSDFATLPTokenPool: Cannot stake 0');
+        require(amount > 0, 'FACWBNBFATLPTokenPool: Cannot stake 0');
         uint256 newDeposit = deposits[msg.sender].add(amount);
         deposits[msg.sender] = newDeposit;
         super.stake(amount);
@@ -136,7 +136,7 @@ contract FACBUSDFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
     updateReward(msg.sender)
     checkStart
     {
-        require(amount > 0, 'FACBUSDFATLPTokenPool: Cannot withdraw 0');
+        require(amount > 0, 'FACWBNBFATLPTokenPool: Cannot withdraw 0');
         deposits[msg.sender] = deposits[msg.sender].sub(amount);
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);

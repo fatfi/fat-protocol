@@ -1,7 +1,7 @@
 pragma solidity ^0.6.0;
 
 // K-Rewards Pools - Communities
-import '../distribution/FACREEFPool.sol';
+import '../distribution/FACGUMPool.sol';
 import '../distribution/FACSFPPool.sol';
 import '../distribution/FACTWTPool.sol';
 import '../distribution/FACLINKPool.sol';

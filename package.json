@@ -9,7 +9,7 @@
     "console:dev": "truffle console --network dev",
     "deploy:dev": "truffle migrate --reset --network dev",
     "deploy:testnet": "truffle migrate --network testnet",
-    "deploy:mainnet": "truffle migrate --network bsc"
+    "deploy:mainnet": "truffle migrate --network mainnet"
   },
   "devDependencies": {
     "@ethersproject/address": "^5.0.0-beta",

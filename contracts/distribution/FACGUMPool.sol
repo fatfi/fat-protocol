@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: FACREEFPool.sol
+* Synthetix: FACGUMPool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -45,11 +45,11 @@ import '@openzeppelin/contracts/utils/Address.sol';
 import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
 
-contract REEFWrapper{
+contract GUMWrapper{
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
-    IBEP20 public reef;
+    IBEP20 public gum;
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
@@ -65,17 +65,17 @@ contract REEFWrapper{
     function stake(uint256 amount) public virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
-        reef.safeTransferFrom(msg.sender, address(this), amount);
+        gum.safeTransferFrom(msg.sender, address(this), amount);
     }
 
     function withdraw(uint256 amount) public virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        reef.safeTransfer(msg.sender, amount);
+        gum.safeTransfer(msg.sender, amount);
     }
 }
 
-contract FACREEFPool is REEFWrapper, IRewardDistributionRecipient {
+contract FACGUMPool is GUMWrapper, IRewardDistributionRecipient {
     IBEP20 public fatCash;
     uint256 public DURATION = 5 days;
 
@@ -95,16 +95,16 @@ contract FACREEFPool is REEFWrapper, IRewardDistributionRecipient {
 
     constructor(
         address fatCash_,
-        address reef_,
+        address gum_,
         uint256 starttime_
     ) public {
         fatCash = IBEP20(fatCash_);
-        reef = IBEP20(reef_);
+        gum = IBEP20(gum_);
         starttime = starttime_;
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'FACREEFPool: not start');
+        require(block.timestamp >= starttime, 'FACGUMPool: not start');
         _;
     }
 
@@ -151,11 +151,11 @@ contract FACREEFPool is REEFWrapper, IRewardDistributionRecipient {
     updateReward(msg.sender)
     checkStart
     {
-        require(amount > 0, 'FACREEFPool: Cannot stake 0');
+        require(amount > 0, 'FACGUMPool: Cannot stake 0');
         uint256 newDeposit = deposits[msg.sender].add(amount);
         require(
             newDeposit <= 20000e18,
-            'FACREEFPool: deposit amount exceeds maximum 20000'
+            'FACGUMPool: deposit amount exceeds maximum 20000'
         );
         deposits[msg.sender] = newDeposit;
         super.stake(amount);
@@ -168,7 +168,7 @@ contract FACREEFPool is REEFWrapper, IRewardDistributionRecipient {
     updateReward(msg.sender)
     checkStart
     {
-        require(amount > 0, 'FACREEFPool: Cannot withdraw 0');
+        require(amount > 0, 'FACGUMPool: Cannot withdraw 0');
         deposits[msg.sender] = deposits[msg.sender].sub(amount);
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);
