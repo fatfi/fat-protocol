@@ -1,7 +1,9 @@
 pragma solidity ^0.6.0;
 //pragma experimental ABIEncoderV2;
-import './lib/BEP20.sol';
+
+import './lib/IBEP20.sol';
 import './lib/SafeBEP20.sol';
+
 import './lib/Safe112.sol';
 import './owner/Operator.sol';
 import './utils/ContractGuard.sol';
@@ -9,9 +11,9 @@ import './interfaces/IFatAsset.sol';
 
 contract ShareWrapper {
     using SafeMath for uint256;
-    using SafeBEP20 for BEP20;
+    using SafeBEP20 for IBEP20;
 
-    BEP20 public share;
+    IBEP20 public share;
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
@@ -43,7 +45,7 @@ contract ShareWrapper {
 }
 
 contract Boardroom is ShareWrapper, ContractGuard, Operator {
-    using SafeBEP20 for BEP20;
+    using SafeBEP20 for IBEP20;
     using Address for address;
     using SafeMath for uint256;
     using Safe112 for uint112;
@@ -63,21 +65,21 @@ contract Boardroom is ShareWrapper, ContractGuard, Operator {
 
     /* ========== STATE VARIABLES ========== */
 
-    BEP20 private cash;
+    IBEP20 private cash;
 
     mapping(address => Boardseat) private directors;
     BoardSnapshot[] private boardHistory;
 
     /* ========== CONSTRUCTOR ========== */
 
-    constructor(BEP20 _cash, BEP20 _share) public {
+    constructor(IBEP20 _cash, IBEP20 _share) public {
         cash = _cash;
         share = _share;
 
         BoardSnapshot memory genesisSnapshot = BoardSnapshot({
-        time: block.number,
-        rewardReceived: 0,
-        rewardPerShare: 0
+            time: block.number,
+            rewardReceived: 0,
+            rewardPerShare: 0
         });
         boardHistory.push(genesisSnapshot);
     }
@@ -114,17 +116,17 @@ contract Boardroom is ShareWrapper, ContractGuard, Operator {
     }
 
     function getLastSnapshotIndexOf(address director)
-    public
-    view
-    returns (uint256)
+        public
+        view
+        returns (uint256)
     {
         return directors[director].lastSnapshotIndex;
     }
 
     function getLastSnapshotOf(address director)
-    internal
-    view
-    returns (BoardSnapshot memory)
+        internal
+        view
+        returns (BoardSnapshot memory)
     {
         return boardHistory[getLastSnapshotIndexOf(director)];
     }
@@ -140,18 +142,18 @@ contract Boardroom is ShareWrapper, ContractGuard, Operator {
         uint256 storedRPS = getLastSnapshotOf(director).rewardPerShare;
 
         return
-        balanceOf(director).mul(latestRPS.sub(storedRPS)).div(1e18).add(
-            directors[director].rewardEarned
-        );
+            balanceOf(director).mul(latestRPS.sub(storedRPS)).div(1e18).add(
+                directors[director].rewardEarned
+            );
     }
 
     /* ========== MUTATIVE FUNCTIONS ========== */
 
     function stake(uint256 amount)
-    public
-    override
-    onlyOneBlock
-    updateReward(msg.sender)
+        public
+        override
+        onlyOneBlock
+        updateReward(msg.sender)
     {
         require(amount > 0, 'Boardroom: Cannot stake 0');
         super.stake(amount);
@@ -159,11 +161,11 @@ contract Boardroom is ShareWrapper, ContractGuard, Operator {
     }
 
     function withdraw(uint256 amount)
-    public
-    override
-    onlyOneBlock
-    directorExists
-    updateReward(msg.sender)
+        public
+        override
+        onlyOneBlock
+        directorExists
+        updateReward(msg.sender)
     {
         require(amount > 0, 'Boardroom: Cannot withdraw 0');
         super.withdraw(amount);
@@ -185,9 +187,9 @@ contract Boardroom is ShareWrapper, ContractGuard, Operator {
     }
 
     function allocateSeigniorage(uint256 amount)
-    external
-    onlyOneBlock
-    onlyOperator
+        external
+        onlyOneBlock
+        onlyOperator
     {
         require(amount > 0, 'Boardroom: Cannot allocate 0');
         require(
@@ -200,9 +202,9 @@ contract Boardroom is ShareWrapper, ContractGuard, Operator {
         uint256 nextRPS = prevRPS.add(amount.mul(1e18).div(totalSupply()));
 
         BoardSnapshot memory newSnapshot = BoardSnapshot({
-        time: block.number,
-        rewardReceived: amount,
-        rewardPerShare: nextRPS
+            time: block.number,
+            rewardReceived: amount,
+            rewardPerShare: nextRPS
         });
         boardHistory.push(newSnapshot);
 

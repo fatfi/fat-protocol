@@ -80,6 +80,7 @@ contract FACWBNBPool is WBNBWrapper, IRewardDistributionRecipient {
     uint256 public DURATION = 5 days;
 
     uint256 public starttime;
+    uint256 public rewardtime;
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -101,6 +102,7 @@ contract FACWBNBPool is WBNBWrapper, IRewardDistributionRecipient {
         fatCash = IBEP20(fatCash_);
         wbnb = IBEP20(wbnb_);
         starttime = starttime_;
+        rewardtime = starttime_ + 1 hours;
     }
 
     modifier checkStart() {

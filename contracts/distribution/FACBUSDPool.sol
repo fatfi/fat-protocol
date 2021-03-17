@@ -80,6 +80,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
     uint256 public DURATION = 5 days;
 
     uint256 public starttime;
+    uint256 public rewardtime;
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -101,6 +102,7 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
         fatCash = IBEP20(fatCash_);
         busd = IBEP20(busd_);
         starttime = starttime_;
+        rewardtime = starttime_ + 1 hours;
     }
 
     modifier checkStart() {
@@ -123,6 +125,9 @@ contract FACBUSDPool is BUSDWrapper, IRewardDistributionRecipient {
     }
 
     function rewardPerToken() public view returns (uint256) {
+        if(block.timestamp >= rewardtime){
+            return rewardPerTokenStored;
+        }
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
         }
