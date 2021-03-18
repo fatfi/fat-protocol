@@ -102,7 +102,7 @@ contract FACGUMPool is GUMWrapper, IRewardDistributionRecipient {
         fatCash = IBEP20(fatCash_);
         gum = IBEP20(gum_);
         starttime = starttime_;
-        rewardtime = starttime_ + 1 hours;
+        rewardtime =  starttime_ + 4 hours;
     }
 
     modifier checkStart() {
@@ -125,8 +125,9 @@ contract FACGUMPool is GUMWrapper, IRewardDistributionRecipient {
     }
 
     function rewardPerToken() public view returns (uint256) {
-        if(block.timestamp >= rewardtime){
-            return rewardPerTokenStored;
+
+        if(block.timestamp <= rewardtime){
+            return 0;
         }
         if (totalSupply() == 0) {
             return rewardPerTokenStored;

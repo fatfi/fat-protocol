@@ -1,0 +1,181 @@
+{
+  "contractName": "IDistributor",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "distribute",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"distribute\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Volumes/Developer/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol\":\"IDistributor\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Volumes/Developer/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol\":{\"keccak256\":\"0xea1e150732abf6a78e89314ebc297fdab51065aa9ad329fee4afbcf1dcc9a9ff\",\"urls\":[\"bzz-raw://702e8b7b0ad578176c3e4ab69892a6ac796eeccb7d881e696e7dfaf65fe7a441\",\"dweb:/ipfs/QmX8PW8MeDmMa6TQnSwVvoZJ9UHyaDDiEize3LW8tGFeBb\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.6.0;\n\ninterface IDistributor {\n    function distribute() external;\n}\n",
+  "sourcePath": "/Volumes/Developer/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+  "ast": {
+    "absolutePath": "/Volumes/Developer/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+    "exportedSymbols": {
+      "IDistributor": [
+        15545
+      ]
+    },
+    "id": 15546,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15541,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:36"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15545,
+        "linearizedBaseContracts": [
+          15545
+        ],
+        "name": "IDistributor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "e4fc6b6d",
+            "id": 15544,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "distribute",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15542,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "73:2:36"
+            },
+            "returnParameters": {
+              "id": 15543,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "84:0:36"
+            },
+            "scope": 15545,
+            "src": "54:31:36",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15546,
+        "src": "25:62:36"
+      }
+    ],
+    "src": "0:88:36"
+  },
+  "legacyAST": {
+    "absolutePath": "/Volumes/Developer/Workspace/farmbria/fat-protocol/contracts/interfaces/IDistributor.sol",
+    "exportedSymbols": {
+      "IDistributor": [
+        15545
+      ]
+    },
+    "id": 15546,
+    "license": null,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 15541,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:36"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 15545,
+        "linearizedBaseContracts": [
+          15545
+        ],
+        "name": "IDistributor",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "functionSelector": "e4fc6b6d",
+            "id": 15544,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "distribute",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 15542,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "73:2:36"
+            },
+            "returnParameters": {
+              "id": 15543,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "84:0:36"
+            },
+            "scope": 15545,
+            "src": "54:31:36",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 15546,
+        "src": "25:62:36"
+      }
+    ],
+    "src": "0:88:36"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.1",
+  "updatedAt": "2021-03-17T03:06:32.335Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

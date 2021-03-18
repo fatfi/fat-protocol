@@ -10,5 +10,6 @@ ropsten.deployment.log
 test/
 *.log
 migrations
-deployments
-build
+build/deployments.dev.json
+build/tokens.dev.json
+

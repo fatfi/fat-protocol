@@ -1,0 +1,128 @@
+{
+  "BUSD": {
+    "poolName": "FACBUSDPool",
+    "poolAddress": "0xFD539993b64389601Ac7715DbB9A71A842C37759",
+    "tokenName": "BUSD",
+    "tokenAddress": "0x410E2f72A2A36bcBac30F9101e1503387B0Ae005",
+    "decimals": 18
+  },
+  "DAI": {
+    "poolName": "FACDAIPool",
+    "poolAddress": "0x6A7844efF63A6c19cac3CFB60fa97361Bcb8DD75",
+    "tokenName": "DAI",
+    "tokenAddress": "0xa22dd972d1274e60e3b6b7d3d9d6ac5052d27fbb",
+    "decimals": 18
+  },
+  "BUSDT": {
+    "poolName": "FACBUSDTPool",
+    "poolAddress": "0x6Ba86145EBA300a2cB65A862c06C0A6d377ce4eE",
+    "tokenName": "BUSDT",
+    "tokenAddress": "0x1d692925e56596a42d69c29509cb106bdcebff2c",
+    "decimals": 18
+  },
+  "USDC": {
+    "poolName": "FACUSDCPool",
+    "poolAddress": "0x374146F730Ceabc8F98bff49788E5Dcc0f83eA4C",
+    "tokenName": "USDC",
+    "tokenAddress": "0x7d4299cfc675f4c7f55b4fc6e4903f7fe5fdc3cb",
+    "decimals": 18
+  },
+  "CAKE": {
+    "poolName": "FACCAKEPool",
+    "poolAddress": "0x90D09aa191b4362f4A19b31294B1679831B14C71",
+    "tokenName": "CAKE",
+    "tokenAddress": "0xc37dbb62afcc464c9e9162ba25174f346088606a",
+    "decimals": 18
+  },
+  "BAKE": {
+    "poolName": "FACBAKEPool",
+    "poolAddress": "0xc20d029f568E39d3f6391Be173f13eA13a207aFC",
+    "tokenName": "BAKE",
+    "tokenAddress": "0xc68e394307d7efa7c7bad68198ff7585f5d20923",
+    "decimals": 18
+  },
+  "BURGER": {
+    "poolName": "FACBURGERPool",
+    "poolAddress": "0xf39f3ad536B4bA627500Ea114735eB526fA8CbdF",
+    "tokenName": "BURGER",
+    "tokenAddress": "0x613c0addc733dcdf8434e24dcc3e66badc559d0f",
+    "decimals": 18
+  },
+  "ETH": {
+    "poolName": "FACETHPool",
+    "poolAddress": "0x7bdDE1627A12049332c6D0AE29326b32A3965922",
+    "tokenName": "ETH",
+    "tokenAddress": "0x0e0f133776e66cda47ce8b6a0df869e420be06fe",
+    "decimals": 18
+  },
+  "WBNB": {
+    "poolName": "FACWBNBPool",
+    "poolAddress": "0x70f27DE2644847FDc6Aee8304C4969878FF6718d",
+    "tokenName": "WBNB",
+    "tokenAddress": "0x89Ef048e4Dc5ABc10b6b38850d0fe530BfEB69d1",
+    "decimals": 18
+  },
+  "XRP": {
+    "poolName": "FACXRPPool",
+    "poolAddress": "0xbfa8bC43A801ee27Bdb46cfFF96b174E86ab8cAE",
+    "tokenName": "XRP",
+    "tokenAddress": "0x7c9c2dd561aa80e1412e1a4fe8498be9fb1902f5",
+    "decimals": 18
+  },
+  "SXP": {
+    "poolName": "FACSXPPool",
+    "poolAddress": "0x8A1f3e8c8CcA79208f851e4eC787C75BCfDFD585",
+    "tokenName": "SXP",
+    "tokenAddress": "0xb76cede40f0aaa3a403695ad18669a413ba1a549",
+    "decimals": 18
+  },
+  "DOT": {
+    "poolName": "FACDOTPool",
+    "poolAddress": "0x8e9AD0292094E6B71A1aA4f62998d6308710C269",
+    "tokenName": "DOT",
+    "tokenAddress": "0xf6100d68154db8ccd73688c90c545ae595774747",
+    "decimals": 18
+  },
+  "ADA": {
+    "poolName": "FACADAPool",
+    "poolAddress": "0xD07b9b7533B0712ABAD9916838a7366e8B5a3aF1",
+    "tokenName": "ADA",
+    "tokenAddress": "0x7c93ff474695f0b90e22f9e8a9fc1c8c5a5833bf",
+    "decimals": 18
+  },
+  "DOGE": {
+    "poolName": "FACDOGEPool",
+    "poolAddress": "0xAc6B18C96dE98FF8D07FBd47266E5339bde40Cc2",
+    "tokenName": "DOGE",
+    "tokenAddress": "0x62ad4809728add1e759654897eee4532de362e87",
+    "decimals": 18
+  },
+  "LINK": {
+    "poolName": "FACLINKPool",
+    "poolAddress": "0x5C1A7f3C29F930943F48F556a0aF6d8ee449Cb18",
+    "tokenName": "LINK",
+    "tokenAddress": "0x6f344de321aea6e2ced9996bac7f2fc8d4bfd24b",
+    "decimals": 18
+  },
+  "TWT": {
+    "poolName": "FACTWTPool",
+    "poolAddress": "0x85720a68130FaD9C308597106ABf80f746ba59aa",
+    "tokenName": "TWT",
+    "tokenAddress": "0x2a8d4e2b3dfce695f98aa4d32749e0527947598c",
+    "decimals": 18
+  },
+  "SFP": {
+    "poolName": "FACSFPPool",
+    "poolAddress": "0xA060bBA629bfA885137eBF0901c069256C3b962F",
+    "tokenName": "SFP",
+    "tokenAddress": "0x7764a1fb6f208f4ce67417e5792030b8bedcf5ad",
+    "decimals": 18
+  },
+  "GUM": {
+    "poolName": "FACGUMPool",
+    "poolAddress": "0x90E82339FD6566478766b5D3Fbe8EB3B8Bbfb3BE",
+    "tokenName": "GUM",
+    "tokenAddress": "0x6a195b81f0bafa2567513d80ab08a5b5a1f80a1a",
+    "decimals": 18
+  }
+}

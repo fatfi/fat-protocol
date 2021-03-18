@@ -55,7 +55,6 @@ contract BUSDFATLPTokenSharePool is
 
     uint256 public initreward = 1890 * 10**18; // 1890 Shares
     uint256 public starttime; // starttime TBD
-    uint256 public rewardtime;
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -76,7 +75,6 @@ contract BUSDFATLPTokenSharePool is
         fatShare = IBEP20(fatShare_);
         lpt = IBEP20(lptoken_);
         starttime = starttime_;
-        rewardtime = starttime_ + 1 hours;
     }
 
     modifier updateReward(address account) {
@@ -94,9 +92,7 @@ contract BUSDFATLPTokenSharePool is
     }
 
     function rewardPerToken() public view returns (uint256) {
-        if(block.timestamp >= rewardtime){
-            return rewardPerTokenStored;
-        }
+
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
         }

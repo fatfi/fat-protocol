@@ -75,7 +75,7 @@ contract BUSDFASLPTokenSharePool is
         fatShare = IBEP20(fatShare_);
         lpt = IBEP20(lptoken_);
         starttime = starttime_;
-        rewardtime = starttime_ + 1 hours;
+        rewardtime =  starttime_ + 4 hours;
     }
 
     modifier checkStart() {
@@ -101,8 +101,9 @@ contract BUSDFASLPTokenSharePool is
     }
 
     function rewardPerToken() public view returns (uint256) {
-        if(block.timestamp >= rewardtime){
-            return rewardPerTokenStored;
+
+        if(block.timestamp <= rewardtime){
+            return 0;
         }
         if (totalSupply() == 0) {
             return rewardPerTokenStored;

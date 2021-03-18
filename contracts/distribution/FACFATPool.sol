@@ -10,7 +10,7 @@ pragma solidity ^0.6.0;
 /___/ \_, //_//_/\__//_//_/\__/ \__//_/ /_\_\
      /___/
 
-* Synthetix: FACDOGEPool.sol
+* Synthetix: FACFATPool.sol
 *
 * Docs: https://docs.synthetix.io/
 *
@@ -45,11 +45,11 @@ import '@openzeppelin/contracts/utils/Address.sol';
 import '../lib/SafeBEP20.sol';
 import '../interfaces/IRewardDistributionRecipient.sol';
 
-contract DOGEWrapper{
+contract FATWrapper{
     using SafeMath for uint256;
     using SafeBEP20 for IBEP20;
 
-    IBEP20 public doge;
+    IBEP20 public fat;
 
     uint256 private _totalSupply;
     mapping(address => uint256) private _balances;
@@ -65,17 +65,17 @@ contract DOGEWrapper{
     function stake(uint256 amount) public virtual {
         _totalSupply = _totalSupply.add(amount);
         _balances[msg.sender] = _balances[msg.sender].add(amount);
-        doge.safeTransferFrom(msg.sender, address(this), amount);
+        fat.safeTransferFrom(msg.sender, address(this), amount);
     }
 
     function withdraw(uint256 amount) public virtual {
         _totalSupply = _totalSupply.sub(amount);
         _balances[msg.sender] = _balances[msg.sender].sub(amount);
-        doge.safeTransfer(msg.sender, amount);
+        fat.safeTransfer(msg.sender, amount);
     }
 }
 
-contract FACDOGEPool is DOGEWrapper, IRewardDistributionRecipient {
+contract FACFATPool is FATWrapper, IRewardDistributionRecipient {
     IBEP20 public fatCash;
     uint256 public DURATION = 5 days;
 
@@ -95,16 +95,16 @@ contract FACDOGEPool is DOGEWrapper, IRewardDistributionRecipient {
 
     constructor(
         address fatCash_,
-        address doge_,
+        address fat_,
         uint256 starttime_
     ) public {
         fatCash = IBEP20(fatCash_);
-        doge = IBEP20(doge_);
+        fat = IBEP20(fat_);
         starttime = starttime_;
     }
 
     modifier checkStart() {
-        require(block.timestamp >= starttime, 'FACDOGEPool: not start');
+        require(block.timestamp >= starttime, 'FACFATPool: not start');
         _;
     }
 
@@ -151,12 +151,9 @@ contract FACDOGEPool is DOGEWrapper, IRewardDistributionRecipient {
     updateReward(msg.sender)
     checkStart
     {
-        require(amount > 0, 'FACDOGEPool: Cannot stake 0');
+        require(amount > 0, 'FACFATPool: Cannot stake 0');
         uint256 newDeposit = deposits[msg.sender].add(amount);
-        require(
-            newDeposit <= 20000e18,
-            'FACDOGEPool: deposit amount exceeds maximum 20000'
-        );
+
         deposits[msg.sender] = newDeposit;
         super.stake(amount);
         emit Staked(msg.sender, amount);
@@ -168,7 +165,7 @@ contract FACDOGEPool is DOGEWrapper, IRewardDistributionRecipient {
     updateReward(msg.sender)
     checkStart
     {
-        require(amount > 0, 'FACDOGEPool: Cannot withdraw 0');
+        require(amount > 0, 'FACFATPool: Cannot withdraw 0');
         deposits[msg.sender] = deposits[msg.sender].sub(amount);
         super.withdraw(amount);
         emit Withdrawn(msg.sender, amount);

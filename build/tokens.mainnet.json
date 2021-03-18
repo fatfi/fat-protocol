@@ -1,0 +1,128 @@
+{
+  "BUSD": {
+    "poolName": "FACBUSDPool",
+    "poolAddress": "0xe212c81e1D4b8F22F096f6D06eAAD15663CEB0b4",
+    "tokenName": "BUSD",
+    "tokenAddress": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "decimals": 18
+  },
+  "DAI": {
+    "poolName": "FACDAIPool",
+    "poolAddress": "0x8f14749cdfeB475d043436B1e08CfaF72ad14022",
+    "tokenName": "DAI",
+    "tokenAddress": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+    "decimals": 18
+  },
+  "BUSDT": {
+    "poolName": "FACBUSDTPool",
+    "poolAddress": "0xEEA9cc70547c4AeE145E934E3E84Cb00369537AB",
+    "tokenName": "BUSDT",
+    "tokenAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "decimals": 18
+  },
+  "USDC": {
+    "poolName": "FACUSDCPool",
+    "poolAddress": "0x839f9c919e577c37add4D17C1395D861eD4B1947",
+    "tokenName": "USDC",
+    "tokenAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "decimals": 18
+  },
+  "CAKE": {
+    "poolName": "FACCAKEPool",
+    "poolAddress": "0x8087f720270D617311EA03c829E3Ca1f1D290054",
+    "tokenName": "CAKE",
+    "tokenAddress": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+    "decimals": 18
+  },
+  "BAKE": {
+    "poolName": "FACBAKEPool",
+    "poolAddress": "0xF8db4258F1aa7b96228ba780488DAE7a5Fab2B4D",
+    "tokenName": "BAKE",
+    "tokenAddress": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
+    "decimals": 18
+  },
+  "BURGER": {
+    "poolName": "FACBURGERPool",
+    "poolAddress": "0xd546b294457671c35186D9aCba3093f81B49358A",
+    "tokenName": "BURGER",
+    "tokenAddress": "0xae9269f27437f0fcbc232d39ec814844a51d6b8f",
+    "decimals": 18
+  },
+  "ETH": {
+    "poolName": "FACETHPool",
+    "poolAddress": "0x2a5eC9d3Fd85922e99aBb1B5dE5e217eA1046d74",
+    "tokenName": "ETH",
+    "tokenAddress": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+    "decimals": 18
+  },
+  "WBNB": {
+    "poolName": "FACWBNBPool",
+    "poolAddress": "0x7f32e4FAC380630a146D6eDC1f114ACE0efB28Ea",
+    "tokenName": "WBNB",
+    "tokenAddress": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "decimals": 18
+  },
+  "XRP": {
+    "poolName": "FACXRPPool",
+    "poolAddress": "0x6655B484eA037256b615DE845014f6a11f7f3B5D",
+    "tokenName": "XRP",
+    "tokenAddress": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+    "decimals": 18
+  },
+  "SXP": {
+    "poolName": "FACSXPPool",
+    "poolAddress": "0x791c0a3781c74133b73245eEA210Bd192516Be07",
+    "tokenName": "SXP",
+    "tokenAddress": "0x47bead2563dcbf3bf2c9407fea4dc236faba485a",
+    "decimals": 18
+  },
+  "DOT": {
+    "poolName": "FACDOTPool",
+    "poolAddress": "0x891f71774Ce91DE7ea5D3248F9b39B1128f6a788",
+    "tokenName": "DOT",
+    "tokenAddress": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+    "decimals": 18
+  },
+  "ADA": {
+    "poolName": "FACADAPool",
+    "poolAddress": "0xe2CE541b03c1EcA6812D9b521Ac3528e36Ad4E1c",
+    "tokenName": "ADA",
+    "tokenAddress": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+    "decimals": 18
+  },
+  "FAT": {
+    "poolName": "FACFATPool",
+    "poolAddress": "0x5da2028383bd1C4D230F29C4DB219ea2e176Fff7",
+    "tokenName": "FAT",
+    "tokenAddress": "0x90e767A68a7d707B74D569C8E79f9bBb79b98a8b",
+    "decimals": 18
+  },
+  "LINK": {
+    "poolName": "FACLINKPool",
+    "poolAddress": "0x002552beC5bBCe4B75fFD76D623b1f2431C7dD15",
+    "tokenName": "LINK",
+    "tokenAddress": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd",
+    "decimals": 18
+  },
+  "TWT": {
+    "poolName": "FACTWTPool",
+    "poolAddress": "0x38D6B6aA2ACF7F6D289a6E19D0c39F594b681140",
+    "tokenName": "TWT",
+    "tokenAddress": "0x4b0f1812e5df2a09796481ff14017e6005508003",
+    "decimals": 18
+  },
+  "SFP": {
+    "poolName": "FACSFPPool",
+    "poolAddress": "0x104dF57975125D072711E9311DF54B2c59c44F00",
+    "tokenName": "SFP",
+    "tokenAddress": "0xd41fdb03ba84762dd66a0af1a6c8540ff1ba5dfb",
+    "decimals": 18
+  },
+  "GUM": {
+    "poolName": "FACGUMPool",
+    "poolAddress": "0xc639780Ad3E17A04b4B60772c9f3442949BD0910",
+    "tokenName": "GUM",
+    "tokenAddress": "0xc53708664b99df348dd27c3ac0759d2da9c40462",
+    "decimals": 18
+  }
+}

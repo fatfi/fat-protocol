@@ -39,17 +39,15 @@ contract Oracle is Epoch {
         uint256 _period,
         uint256 _startTime
     ) public Epoch(_period, _startTime, 0) {
-        IUniswapV2Pair _pair = IUniswapV2Pair(
-            UniswapV2Library.pairFor(_factory, _tokenA, _tokenB)
-        );
-        pair = _pair;
-        token0 = _pair.token0();
-        token1 = _pair.token1();
-        price0CumulativeLast = _pair.price0CumulativeLast(); // fetch the current accumulated price value (1 / 0)
-        price1CumulativeLast = _pair.price1CumulativeLast(); // fetch the current accumulated price value (0 / 1)
+        address _pair = IUniswapV2Factory(_factory).getPair(_tokenA, _tokenB);
+        pair = IUniswapV2Pair(_pair);
+        token0 = pair.token0();
+        token1 = pair.token1();
+        price0CumulativeLast = pair.price0CumulativeLast(); // fetch the current accumulated price value (1 / 0)
+        price1CumulativeLast = pair.price1CumulativeLast(); // fetch the current accumulated price value (0 / 1)
         uint112 reserve0;
         uint112 reserve1;
-        (reserve0, reserve1, blockTimestampLast) = _pair.getReserves();
+        (reserve0, reserve1, blockTimestampLast) = pair.getReserves();
         require(reserve0 != 0 && reserve1 != 0, 'Oracle: NO_RESERVES'); // ensure that there's liquidity in the pair
     }
 
@@ -98,6 +96,38 @@ contract Oracle is Epoch {
             amountOut = price1Average.mul(amountIn).decode144();
         }
     }
+
+    // collaboration of update / consult
+    function expectedPrice(address token, uint256 amountIn)
+    external
+    view
+    returns (uint224 amountOut)
+    {
+        (
+        uint256 price0Cumulative,
+        uint256 price1Cumulative,
+        uint32 blockTimestamp
+        ) = UniswapV2OracleLibrary.currentCumulativePrices(address(pair));
+        uint32 timeElapsed = blockTimestamp - blockTimestampLast; // overflow is desired
+
+        FixedPoint.uq112x112 memory avg0 =
+        FixedPoint.uq112x112(
+            uint224((price0Cumulative - price0CumulativeLast) / timeElapsed)
+        );
+        FixedPoint.uq112x112 memory avg1 =
+        FixedPoint.uq112x112(
+            uint224((price1Cumulative - price1CumulativeLast) / timeElapsed)
+        );
+
+        if (token == token0) {
+            amountOut = avg0.mul(amountIn).decode144();
+        } else {
+            require(token == token1, 'Oracle: INVALID_TOKEN');
+            amountOut = avg1.mul(amountIn).decode144();
+        }
+        return amountOut;
+    }
+
 
     function pairFor(
         address factory,

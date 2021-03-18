@@ -5,7 +5,7 @@ import '../distribution/FACGUMPool.sol';
 import '../distribution/FACSFPPool.sol';
 import '../distribution/FACTWTPool.sol';
 import '../distribution/FACLINKPool.sol';
-import '../distribution/FACDOGEPool.sol';
+import '../distribution/FACFATPool.sol';
 import '../distribution/FACADAPool.sol';
 import '../distribution/FACDOTPool.sol';
 import '../distribution/FACSXPPool.sol';

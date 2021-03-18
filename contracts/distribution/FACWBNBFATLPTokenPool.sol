@@ -52,6 +52,7 @@ contract FACWBNBFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
     uint256 public DURATION = 5 days;
 
     uint256 public starttime;
+    uint256 public rewardtime;
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
     uint256 public lastUpdateTime;
@@ -73,6 +74,7 @@ contract FACWBNBFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
         fatCash = IBEP20(fatCash_);
         lpt = IBEP20(lptoken_);
         starttime = starttime_;
+        rewardtime =  starttime_ + 4 hours;
     }
 
     modifier checkStart() {
@@ -95,6 +97,10 @@ contract FACWBNBFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
     }
 
     function rewardPerToken() public view returns (uint256) {
+
+        if(block.timestamp <= rewardtime){
+            return 0;
+        }
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
         }

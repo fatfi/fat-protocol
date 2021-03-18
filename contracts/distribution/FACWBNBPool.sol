@@ -102,7 +102,7 @@ contract FACWBNBPool is WBNBWrapper, IRewardDistributionRecipient {
         fatCash = IBEP20(fatCash_);
         wbnb = IBEP20(wbnb_);
         starttime = starttime_;
-        rewardtime = starttime_ + 1 hours;
+        rewardtime =  starttime_ + 4 hours;
     }
 
     modifier checkStart() {
@@ -125,6 +125,10 @@ contract FACWBNBPool is WBNBWrapper, IRewardDistributionRecipient {
     }
 
     function rewardPerToken() public view returns (uint256) {
+
+        if(block.timestamp <= rewardtime){
+            return 0;
+        }
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
         }
