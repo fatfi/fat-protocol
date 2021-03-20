@@ -165,6 +165,7 @@ contract FACWBNBFATLPTokenPool is LPTokenWrapper, IRewardDistributionRecipient {
     function notifyRewardAmount(uint256 reward)
     external
     override
+    onlyRewardDistribution
     updateReward(address(0))
     {
         if (block.timestamp > starttime) {
